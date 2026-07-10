@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="GameCORE/GameCORE.csproj" />
+  <Project Path="GameDATA/GameDATA.csproj" />
+  <Project Path="NEA PROJECT/GameUI.csproj" />
+</Solution>
