@@ -23,5 +23,10 @@ namespace NEA_PROJECT
         {
             Application.Exit();
         }
+
+        private void AshenVeil_Load(object sender, EventArgs e)
+        {
+           
+        }
     }
 }
