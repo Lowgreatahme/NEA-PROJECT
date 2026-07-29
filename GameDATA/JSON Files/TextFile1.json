@@ -1,0 +1,211 @@
+﻿
+    [
+      {
+        "Name": "Ashen Hollow",
+        "Vigor": 45,
+        "CurrentVigor": 45,
+        "Strength": 8,
+        "Endurance": 4,
+        "Mind": 0,
+        "Speed": 6,
+        "DodgeChance": 2,
+        "WeaponResistance": {
+          "Physical": 1.0,
+          "Magic": 1.0,
+          "Fire": 1.5,
+          "Holy": 0.5,
+          "Dark": 1.0
+        },
+        "TypeResistance": {
+          "Physical": 1.0,
+          "Magic": 1.0,
+          "Fire": 1.0,
+          "Holy": 1.0,
+          "Dark": 1.0
+        },
+        "Moves": [ "Flail", "Gnaw" ],
+        "IsBoss": false
+      },
+      {
+        "Name": "Veil Wretch",
+        "Vigor": 60,
+        "CurrentVigor": 60,
+        "Strength": 12,
+        "Endurance": 6,
+        "Mind": 4,
+        "Speed": 8,
+        "DodgeChance": 5,
+        "WeaponResistance": {
+          "Physical": 1.0,
+          "Magic": 0.5,
+          "Fire": 1.0,
+          "Holy": 1.5,
+          "Dark": 1.0
+        },
+        "TypeResistance": {
+          "Physical": 1.0,
+          "Magic": 1.0,
+          "Fire": 1.0,
+          "Holy": 1.0,
+          "Dark": 1.0
+        },
+        "Moves": [ "Hex Bolt", "Claw" ],
+        "IsBoss": false
+      },
+      {
+        "Name": "Ember Knight",
+        "Vigor": 90,
+        "CurrentVigor": 90,
+        "Strength": 16,
+        "Endurance": 12,
+        "Mind": 0,
+        "Speed": 10,
+        "DodgeChance": 8,
+        "WeaponResistance": {
+          "Physical": 0.5,
+          "Magic": 1.0,
+          "Fire": 2.0,
+          "Holy": 1.0,
+          "Dark": 1.0
+        },
+        "TypeResistance": {
+          "Physical": 1.0,
+          "Magic": 1.0,
+          "Fire": 1.0,
+          "Holy": 1.0,
+          "Dark": 1.0
+        },
+        "Moves": [ "Sword Slam", "Ember Strike" ],
+        "IsBoss": false
+      },
+      {
+        "Name": "Gloom Stalker",
+        "Vigor": 75,
+        "CurrentVigor": 75,
+        "Strength": 10,
+        "Endurance": 8,
+        "Mind": 8,
+        "Speed": 16,
+        "DodgeChance": 14,
+        "WeaponResistance": {
+          "Physical": 1.0,
+          "Magic": 1.5,
+          "Fire": 1.0,
+          "Holy": 0.5,
+          "Dark": 0.5
+        },
+        "TypeResistance": {
+          "Physical": 1.0,
+          "Magic": 1.0,
+          "Fire": 1.0,
+          "Holy": 1.0,
+          "Dark": 1.0
+        },
+        "Moves": [ "Shadow Slash", "Vanish" ],
+        "IsBoss": false
+      },
+      {
+        "Name": "Fallen Acolyte",
+        "Vigor": 100,
+        "CurrentVigor": 100,
+        "Strength": 14,
+        "Endurance": 10,
+        "Mind": 12,
+        "Speed": 9,
+        "DodgeChance": 6,
+        "WeaponResistance": {
+          "Physical": 1.0,
+          "Magic": 1.0,
+          "Fire": 1.0,
+          "Holy": 1.5,
+          "Dark": 0.5
+        },
+        "TypeResistance": {
+          "Physical": 1.0,
+          "Magic": 1.0,
+          "Fire": 1.0,
+          "Holy": 1.0,
+          "Dark": 1.0
+        },
+        "Moves": [ "Sacred Flail", "Atonement Heal" ],
+        "IsBoss": false
+      },
+      {
+        "Name": "Charred Omen",
+        "Vigor": 140,
+        "CurrentVigor": 140,
+        "Strength": 20,
+        "Endurance": 16,
+        "Mind": 6,
+        "Speed": 11,
+        "DodgeChance": 4,
+        "WeaponResistance": {
+          "Physical": 0.5,
+          "Magic": 1.0,
+          "Fire": 0.5,
+          "Holy": 1.5,
+          "Dark": 1.0
+        },
+        "TypeResistance": {
+          "Physical": 1.0,
+          "Magic": 1.0,
+          "Fire": 1.0,
+          "Holy": 1.0,
+          "Dark": 1.0
+        },
+        "Moves": [ "Omen's Wrath", "Fire Breath", "Crush" ],
+        "IsBoss": false
+      },
+      {
+        "Name": "Veilborne Abomination",
+        "Vigor": 200,
+        "CurrentVigor": 200,
+        "Strength": 24,
+        "Endurance": 18,
+        "Mind": 16,
+        "Speed": 14,
+        "DodgeChance": 6,
+        "WeaponResistance": {
+          "Physical": 1.0,
+          "Magic": 0.5,
+          "Fire": 0.5,
+          "Holy": 2.0,
+          "Dark": 0.5
+        },
+        "TypeResistance": {
+          "Physical": 1.0,
+          "Magic": 1.0,
+          "Fire": 1.0,
+          "Holy": 1.0,
+          "Dark": 1.0
+        },
+        "Moves": [ "Void Slam", "Tendril Whip", "Maddening Gaze" ],
+        "IsBoss": true
+      },
+      {
+        "Name": "Lord of Cinders",
+        "Vigor": 280,
+        "CurrentVigor": 280,
+        "Strength": 28,
+        "Endurance": 22,
+        "Mind": 20,
+        "Speed": 16,
+        "DodgeChance": 4,
+        "WeaponResistance": {
+          "Physical": 0.5,
+          "Magic": 1.0,
+          "Fire": 0.5,
+          "Holy": 1.0,
+          "Dark": 2.0
+        },
+        "TypeResistance": {
+          "Physical": 1.0,
+          "Magic": 1.0,
+          "Fire": 1.0,
+          "Holy": 1.0,
+          "Dark": 1.0
+        },
+        "Moves": [ "Cinder Storm", "Soul Rend", "Ash Eruption", "Ember Heal" ],
+        "IsBoss": true
+      }
+    ]

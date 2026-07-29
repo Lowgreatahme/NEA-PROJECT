@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameCORE.Enumerations;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,9 +7,11 @@ namespace GameCORE.Combat
 {
     public class Move
     {
-        string Name {  get; set; }
-        int basepower { get; set; }
-        int accuracy { get; set; }
+        public string Name {  get; set; }
+        public int BasePower { get; set; }
+        public int Accuracy { get; set; }
+
+        public DamageType DamageType { get; set; }
 
     }
 }

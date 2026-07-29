@@ -8,6 +8,8 @@ namespace GameCORE.Armament
     {
         public string Name { get; set; }
         public DamageType DamageType { get; set; }
+
+        public int BaseDamage { get; set; } 
         public int StrengthMultiplier { get; set; }
         public int MindMultiplier { get; set; }
         public Rarity Rarity { get; set; }

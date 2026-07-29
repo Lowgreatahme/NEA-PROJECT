@@ -13,6 +13,7 @@ namespace GameCORE.Enumerations
         Dark,
         Magic,
         Frost,
+        Lightning,
         Poison
 
     }
