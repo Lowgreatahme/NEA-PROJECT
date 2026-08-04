@@ -1,9 +1,10 @@
-﻿using GameCore;
+﻿using GameCORE;
 using GameCORE.Armament;
 using GameCORE.Characters;
 
 public class AshBorn : Character
 {
+    public string classname { get; set; }
     public string Gender { get; set; }
     public int StartingMana { get; set; }
     public int CurrentMana { get; set; }

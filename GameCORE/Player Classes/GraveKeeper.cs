@@ -9,6 +9,7 @@ namespace GameCORE.Player_Classes
     {
         public GraveKeeper()  
         {
+            classname = "Grave Keeper";
             Vigor = 90;
             CurrentVigor = 90;
             Strength = 14;

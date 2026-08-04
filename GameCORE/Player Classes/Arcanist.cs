@@ -10,6 +10,7 @@ namespace GameCORE.Player_Classes
     {
         public Arcanist()
         {
+            classname = "Arcanist";
             StartingMana = 100;
             CurrentMana = 100;
             Vigor = 70;

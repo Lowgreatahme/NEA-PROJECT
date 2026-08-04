@@ -9,6 +9,7 @@ namespace GameCORE.Player_Classes
     {
         public Hunter()  
         {
+            classname = "Hunter";
             Vigor = 75;
             CurrentVigor = 75;
             Strength = 10;

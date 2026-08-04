@@ -9,6 +9,7 @@ namespace GameCORE.Player_Classes
     {
         public Shade() 
         {
+            classname = "Shade";
             Vigor = 65;
             CurrentVigor = 65;
             Strength = 6;

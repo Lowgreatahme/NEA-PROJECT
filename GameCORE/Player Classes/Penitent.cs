@@ -9,6 +9,7 @@ namespace GameCORE.Player_Classes
     {
         public Penitent() 
         {
+            classname = "Penitent";
             Vigor = 100;
             CurrentVigor = 100;
             Strength = 16;
