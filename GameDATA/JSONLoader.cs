@@ -1,16 +1,19 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using GameCORE.Characters;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 using System.Text;
 
 namespace GameDATA
 {
     public class JSONLoader
     {
-        const string filepath = "GameDATA/JSONFiles/EnemyData.json";
-        static readonly string json = File.ReadAllText(filepath);
-        public static readonly JObject data = JObject.Parse(json);
+        public List<Enemy> LoadEnemies(string path)
+        {
+            string json = File.ReadAllText(path);
+            return JsonSerializer.Deserialize<List<Enemy>>(json);
         }
-    
+    }
 }
