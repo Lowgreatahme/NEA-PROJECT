@@ -39,7 +39,8 @@
             // 
             Display_Panel.AutoSize = true;
             Display_Panel.BackColor = SystemColors.ControlDarkDark;
-            Display_Panel.Location = new Point(132, 53);
+            Display_Panel.Font = new Font("Papyrus", 10F);
+            Display_Panel.Location = new Point(153, 58);
             Display_Panel.MinimumSize = new Size(500, 200);
             Display_Panel.Name = "Display_Panel";
             Display_Panel.Size = new Size(500, 200);
@@ -50,11 +51,11 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = SystemColors.ControlDarkDark;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(268, 280);
+            label1.Font = new Font("Papyrus", 14F);
+            label1.Location = new Point(263, 311);
             label1.MinimumSize = new Size(50, 30);
             label1.Name = "label1";
-            label1.Size = new Size(223, 30);
+            label1.Size = new Size(271, 38);
             label1.TabIndex = 1;
             label1.Text = "Are you sure about this?";
             label1.Click += label1_Click;
@@ -62,8 +63,9 @@
             // button1
             // 
             button1.BackColor = SystemColors.ControlDarkDark;
+            button1.Font = new Font("Papyrus", 14F);
             button1.ForeColor = SystemColors.ControlText;
-            button1.Location = new Point(431, 345);
+            button1.Location = new Point(433, 377);
             button1.Name = "button1";
             button1.Size = new Size(139, 61);
             button1.TabIndex = 2;
@@ -74,8 +76,9 @@
             // button2
             // 
             button2.BackColor = SystemColors.ControlDarkDark;
+            button2.Font = new Font("Papyrus", 14F);
             button2.ForeColor = SystemColors.ControlText;
-            button2.Location = new Point(219, 345);
+            button2.Location = new Point(216, 377);
             button2.Name = "button2";
             button2.Size = new Size(139, 61);
             button2.TabIndex = 3;

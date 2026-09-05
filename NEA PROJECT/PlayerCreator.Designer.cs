@@ -41,10 +41,10 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = SystemColors.ControlDarkDark;
-            label1.Font = new Font("Segoe UI", 20F);
+            label1.Font = new Font("Papyrus", 20F);
             label1.Location = new Point(192, 61);
             label1.Name = "label1";
-            label1.Size = new Size(495, 46);
+            label1.Size = new Size(475, 54);
             label1.TabIndex = 0;
             label1.Text = "What is your name and gender?";
             // 
@@ -62,18 +62,18 @@
             // 
             Name_Label.AutoSize = true;
             Name_Label.BackColor = SystemColors.ControlDarkDark;
-            Name_Label.Font = new Font("Segoe UI", 15F);
+            Name_Label.Font = new Font("Papyrus", 15F);
             Name_Label.Location = new Point(192, 193);
             Name_Label.Name = "Name_Label";
-            Name_Label.Size = new Size(87, 35);
+            Name_Label.Size = new Size(86, 39);
             Name_Label.TabIndex = 2;
             Name_Label.Text = "Name:";
             // 
             // Confirm_Button
             // 
             Confirm_Button.BackColor = SystemColors.ControlDarkDark;
-            Confirm_Button.Font = new Font("Segoe UI", 15F);
-            Confirm_Button.Location = new Point(336, 391);
+            Confirm_Button.Font = new Font("Papyrus", 15F);
+            Confirm_Button.Location = new Point(335, 383);
             Confirm_Button.Name = "Confirm_Button";
             Confirm_Button.Size = new Size(212, 89);
             Confirm_Button.TabIndex = 5;
@@ -85,10 +85,10 @@
             // 
             Male_CheckBox.AutoSize = true;
             Male_CheckBox.BackColor = SystemColors.ControlDarkDark;
-            Male_CheckBox.Font = new Font("Segoe UI", 12F);
-            Male_CheckBox.Location = new Point(375, 283);
+            Male_CheckBox.Font = new Font("Papyrus", 15F);
+            Male_CheckBox.Location = new Point(374, 262);
             Male_CheckBox.Name = "Male_CheckBox";
-            Male_CheckBox.Size = new Size(77, 32);
+            Male_CheckBox.Size = new Size(96, 43);
             Male_CheckBox.TabIndex = 6;
             Male_CheckBox.Text = "Male";
             Male_CheckBox.UseVisualStyleBackColor = false;
@@ -98,10 +98,10 @@
             // 
             Female_Checkbox.AutoSize = true;
             Female_Checkbox.BackColor = SystemColors.ControlDarkDark;
-            Female_Checkbox.Font = new Font("Segoe UI", 12F);
-            Female_Checkbox.Location = new Point(375, 322);
+            Female_Checkbox.Font = new Font("Papyrus", 15F);
+            Female_Checkbox.Location = new Point(374, 326);
             Female_Checkbox.Name = "Female_Checkbox";
-            Female_Checkbox.Size = new Size(96, 32);
+            Female_Checkbox.Size = new Size(117, 43);
             Female_Checkbox.TabIndex = 7;
             Female_Checkbox.Text = "Female";
             Female_Checkbox.UseVisualStyleBackColor = false;
