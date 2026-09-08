@@ -24,7 +24,7 @@ namespace GameCORE.Characters
         public int DodgeChance { get; set; }
         public List<Move> moves { get; set; } = new List<Move>();
         public List<string> Inventory { get; set; } = new List<string>();
-        public bool IsAlive => CurrentVigor > 0;
+        public bool IsAlive;
        
     }
 }

@@ -39,5 +39,12 @@ namespace NEA_PROJECT
         {
 
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            CombatForm CombatForm = new CombatForm();
+            CombatForm.Show();
+        }
     }
 }

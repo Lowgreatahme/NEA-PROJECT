@@ -33,22 +33,25 @@
             Items_Button = new Button();
             Act_Button = new Button();
             BattleDisplay_Label = new Label();
+            Display_Panel = new Panel();
+            Display_Panel.SuspendLayout();
             SuspendLayout();
             // 
             // Combat_Button
             // 
             Combat_Button.Font = new Font("Papyrus", 12F);
-            Combat_Button.Location = new Point(423, 235);
+            Combat_Button.Location = new Point(24, 17);
             Combat_Button.Name = "Combat_Button";
             Combat_Button.Size = new Size(141, 80);
             Combat_Button.TabIndex = 0;
             Combat_Button.Text = "Fight";
             Combat_Button.UseVisualStyleBackColor = true;
+            Combat_Button.Click += Combat_Button_Click;
             // 
             // Magic_Button
             // 
             Magic_Button.Font = new Font("Papyrus", 12F);
-            Magic_Button.Location = new Point(585, 235);
+            Magic_Button.Location = new Point(203, 17);
             Magic_Button.Name = "Magic_Button";
             Magic_Button.Size = new Size(141, 80);
             Magic_Button.TabIndex = 1;
@@ -58,7 +61,7 @@
             // Items_Button
             // 
             Items_Button.Font = new Font("Papyrus", 12F);
-            Items_Button.Location = new Point(423, 338);
+            Items_Button.Location = new Point(24, 103);
             Items_Button.Name = "Items_Button";
             Items_Button.Size = new Size(141, 80);
             Items_Button.TabIndex = 2;
@@ -68,7 +71,7 @@
             // Act_Button
             // 
             Act_Button.Font = new Font("Papyrus", 12F);
-            Act_Button.Location = new Point(585, 338);
+            Act_Button.Location = new Point(203, 103);
             Act_Button.Name = "Act_Button";
             Act_Button.Size = new Size(141, 80);
             Act_Button.TabIndex = 3;
@@ -88,18 +91,28 @@
             BattleDisplay_Label.TabIndex = 4;
             BattleDisplay_Label.Text = "label1";
             // 
+            // Display_Panel
+            // 
+            Display_Panel.Controls.Add(Items_Button);
+            Display_Panel.Controls.Add(Act_Button);
+            Display_Panel.Controls.Add(Combat_Button);
+            Display_Panel.Controls.Add(Magic_Button);
+            Display_Panel.Location = new Point(412, 235);
+            Display_Panel.Name = "Display_Panel";
+            Display_Panel.Size = new Size(376, 203);
+            Display_Panel.TabIndex = 5;
+            Display_Panel.Paint += Display_Panel_Paint;
+            // 
             // CombatForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(BattleDisplay_Label);
-            Controls.Add(Act_Button);
-            Controls.Add(Items_Button);
-            Controls.Add(Magic_Button);
-            Controls.Add(Combat_Button);
+            Controls.Add(Display_Panel);
             Name = "CombatForm";
             Text = "CombatForm";
+            Display_Panel.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -111,5 +124,6 @@
         private Button Items_Button;
         private Button Act_Button;
         private Label BattleDisplay_Label;
+        private Panel Display_Panel;
     }
 }

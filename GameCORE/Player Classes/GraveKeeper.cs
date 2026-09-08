@@ -18,6 +18,8 @@ namespace GameCORE.Player_Classes
             Speed = 8;
             StartingMana = 100;
             CurrentMana = 100;
+            SpecialAbility = "Soul Harvest";
+            GetDescription = "A solemn sentinel of the dead who draws power from burial grounds and commands restless spirits.";
 
             TypeResistance = new Dictionary<DamageType, double>
 {
@@ -31,8 +33,7 @@ namespace GameCORE.Player_Classes
     { DamageType.Lightning, 1.0 }   // Neutral
 };
 
-            SpecialAbility = "Soul Harvest";
-            GetDescription = "A solemn sentinel of the dead who draws power from burial grounds and commands restless spirits.";
+            
         }
 
         public bool IsAlive => CurrentVigor > 0;

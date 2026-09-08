@@ -14,5 +14,15 @@ namespace NEA_PROJECT
         {
             InitializeComponent();
         }
+
+        private void Combat_Button_Click(object sender, EventArgs e)
+        {
+            Display_Panel.Controls.Clear();
+        }
+
+        private void Display_Panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

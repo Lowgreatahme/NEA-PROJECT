@@ -20,6 +20,9 @@ namespace GameCORE.Player_Classes
             Mind = 26;
             Speed = 10;
             DodgeChance = 10;
+            SpecialAbility = "Eldritch Surge";
+            GetDescription = "A scholar of forbidden knowledge who channels raw arcane energy to devastate foes from afar.";
+            
 
             TypeResistance = new Dictionary<DamageType, double>
 {
@@ -39,8 +42,7 @@ namespace GameCORE.Player_Classes
 
         
 
-        public bool IsAlive => CurrentVigor > 0;
-        public  string SpecialAbility = "Eldritch Surge";
-        public string GetDescription = "A scholar of forbidden knowledge who channels raw arcane energy to devastate foes from afar.";
+        
+        
     }
 }

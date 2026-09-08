@@ -65,7 +65,7 @@
             button1.BackColor = SystemColors.ControlDarkDark;
             button1.Font = new Font("Papyrus", 14F);
             button1.ForeColor = SystemColors.ControlText;
-            button1.Location = new Point(433, 377);
+            button1.Location = new Point(234, 377);
             button1.Name = "button1";
             button1.Size = new Size(139, 61);
             button1.TabIndex = 2;
@@ -78,12 +78,13 @@
             button2.BackColor = SystemColors.ControlDarkDark;
             button2.Font = new Font("Papyrus", 14F);
             button2.ForeColor = SystemColors.ControlText;
-            button2.Location = new Point(216, 377);
+            button2.Location = new Point(427, 377);
             button2.Name = "button2";
             button2.Size = new Size(139, 61);
             button2.TabIndex = 3;
             button2.Text = "Confirm";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click_1;
             // 
             // CharacterDisplay
             // 
