@@ -13,5 +13,7 @@ public class AshBorn : Character
     public Armour Armour { get; set; }
     public Talisman Talisman { get; set; }
     public string GetDescription { get; set; }  
+
+     
     
 }

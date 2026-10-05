@@ -40,7 +40,7 @@
             // Combat_Button
             // 
             Combat_Button.Font = new Font("Papyrus", 12F);
-            Combat_Button.Location = new Point(24, 17);
+            Combat_Button.Location = new Point(46, 24);
             Combat_Button.Name = "Combat_Button";
             Combat_Button.Size = new Size(141, 80);
             Combat_Button.TabIndex = 0;
@@ -51,17 +51,18 @@
             // Magic_Button
             // 
             Magic_Button.Font = new Font("Papyrus", 12F);
-            Magic_Button.Location = new Point(203, 17);
+            Magic_Button.Location = new Point(193, 24);
             Magic_Button.Name = "Magic_Button";
             Magic_Button.Size = new Size(141, 80);
             Magic_Button.TabIndex = 1;
             Magic_Button.Text = "Magic";
             Magic_Button.UseVisualStyleBackColor = true;
+            Magic_Button.Click += Magic_Button_Click;
             // 
             // Items_Button
             // 
             Items_Button.Font = new Font("Papyrus", 12F);
-            Items_Button.Location = new Point(24, 103);
+            Items_Button.Location = new Point(46, 108);
             Items_Button.Name = "Items_Button";
             Items_Button.Size = new Size(141, 80);
             Items_Button.TabIndex = 2;
@@ -71,7 +72,7 @@
             // Act_Button
             // 
             Act_Button.Font = new Font("Papyrus", 12F);
-            Act_Button.Location = new Point(203, 103);
+            Act_Button.Location = new Point(193, 108);
             Act_Button.Name = "Act_Button";
             Act_Button.Size = new Size(141, 80);
             Act_Button.TabIndex = 3;

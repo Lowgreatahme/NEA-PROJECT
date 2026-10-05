@@ -25,10 +25,4 @@
     <ProjectReference Include="..\GameCORE\GameCORE.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="EnemyData.cs">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
-  </ItemGroup>
-
 </Project>

@@ -2,6 +2,7 @@
 using GameCORE.Characters;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace GameCORE.Combat
@@ -48,6 +49,17 @@ namespace GameCORE.Combat
                 RawDamage = (BaseDamage * Resistance) - (DefenderEndurance * Mitigation);
                 return (int)RawDamage;
             }
+        }
+        public static int CalculateEnemyDamage(Enemy attacker, AshBorn defender, Move move)
+        {
+            double RawDamage = 0;
+            double BaseDamage = move.BasePower;
+            double AttackerStrength = attacker.Strength;
+            double DefenderEndurance = defender.Endurance;
+            double Resistance = defender.TypeResistance[move.DamageType];
+            double Mitigation = rng.Next(3, 7) / 100.0;
+            RawDamage = ((BaseDamage + (AttackerStrength) * Resistance) - (DefenderEndurance * Mitigation));
+            return (int)RawDamage;
         }
     }
 }

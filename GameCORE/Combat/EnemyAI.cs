@@ -10,7 +10,7 @@ namespace GameCORE.Combat
         public string SelectMove(Enemy CurrentEnemy, AshBorn Player)
         {
             Random rnd = new Random();
-            int RandomIndex = rnd.Next(1, CurrentEnemy.moves.Count);
+            int RandomIndex = rnd.Next(0, CurrentEnemy.moves.Count);
 
             if (CurrentEnemy.CurrentVigor > CurrentEnemy.CurrentVigor/2)
             {

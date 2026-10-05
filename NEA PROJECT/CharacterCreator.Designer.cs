@@ -47,17 +47,18 @@
             label1.BorderStyle = BorderStyle.FixedSingle;
             label1.Font = new Font("Papyrus", 25F);
             label1.ForeColor = Color.DarkGray;
-            label1.Location = new Point(398, 25);
+            label1.Location = new Point(348, 19);
             label1.Name = "label1";
-            label1.Size = new Size(494, 69);
+            label1.Size = new Size(400, 56);
             label1.TabIndex = 0;
             label1.Text = "Choose your Ashenborn";
             // 
             // BackButton
             // 
-            BackButton.Location = new Point(24, 506);
+            BackButton.Location = new Point(12, 370);
+            BackButton.Margin = new Padding(3, 2, 3, 2);
             BackButton.Name = "BackButton";
-            BackButton.Size = new Size(94, 29);
+            BackButton.Size = new Size(82, 22);
             BackButton.TabIndex = 1;
             BackButton.Text = "Back";
             BackButton.UseVisualStyleBackColor = true;
@@ -68,9 +69,10 @@
             Penitent_Select.BackColor = SystemColors.WindowText;
             Penitent_Select.ForeColor = Color.Cornsilk;
             Penitent_Select.ImageAlign = ContentAlignment.BottomLeft;
-            Penitent_Select.Location = new Point(398, 139);
+            Penitent_Select.Location = new Point(348, 104);
+            Penitent_Select.Margin = new Padding(3, 2, 3, 2);
             Penitent_Select.Name = "Penitent_Select";
-            Penitent_Select.Size = new Size(140, 67);
+            Penitent_Select.Size = new Size(122, 50);
             Penitent_Select.TabIndex = 5;
             Penitent_Select.Text = "Penitent";
             Penitent_Select.UseVisualStyleBackColor = false;
@@ -81,9 +83,10 @@
             GraveKeeper_Select.BackColor = SystemColors.WindowText;
             GraveKeeper_Select.ForeColor = Color.Cornsilk;
             GraveKeeper_Select.ImageAlign = ContentAlignment.BottomLeft;
-            GraveKeeper_Select.Location = new Point(228, 139);
+            GraveKeeper_Select.Location = new Point(200, 104);
+            GraveKeeper_Select.Margin = new Padding(3, 2, 3, 2);
             GraveKeeper_Select.Name = "GraveKeeper_Select";
-            GraveKeeper_Select.Size = new Size(140, 67);
+            GraveKeeper_Select.Size = new Size(122, 50);
             GraveKeeper_Select.TabIndex = 4;
             GraveKeeper_Select.Text = "GraveKeeper";
             GraveKeeper_Select.UseVisualStyleBackColor = false;
@@ -94,9 +97,10 @@
             Hunter_Select.BackColor = SystemColors.WindowText;
             Hunter_Select.ForeColor = Color.Cornsilk;
             Hunter_Select.ImageAlign = ContentAlignment.BottomLeft;
-            Hunter_Select.Location = new Point(398, 313);
+            Hunter_Select.Location = new Point(348, 235);
+            Hunter_Select.Margin = new Padding(3, 2, 3, 2);
             Hunter_Select.Name = "Hunter_Select";
-            Hunter_Select.Size = new Size(140, 67);
+            Hunter_Select.Size = new Size(122, 50);
             Hunter_Select.TabIndex = 7;
             Hunter_Select.Text = "Hunter";
             Hunter_Select.UseVisualStyleBackColor = false;
@@ -107,9 +111,10 @@
             Arcanist_Select.BackColor = SystemColors.WindowText;
             Arcanist_Select.ForeColor = Color.Cornsilk;
             Arcanist_Select.ImageAlign = ContentAlignment.BottomLeft;
-            Arcanist_Select.Location = new Point(228, 313);
+            Arcanist_Select.Location = new Point(200, 235);
+            Arcanist_Select.Margin = new Padding(3, 2, 3, 2);
             Arcanist_Select.Name = "Arcanist_Select";
-            Arcanist_Select.Size = new Size(140, 67);
+            Arcanist_Select.Size = new Size(122, 50);
             Arcanist_Select.TabIndex = 6;
             Arcanist_Select.Text = "Arcanist";
             Arcanist_Select.UseVisualStyleBackColor = false;
@@ -120,9 +125,10 @@
             Shade_Select.BackColor = SystemColors.WindowText;
             Shade_Select.ForeColor = Color.Cornsilk;
             Shade_Select.ImageAlign = ContentAlignment.BottomLeft;
-            Shade_Select.Location = new Point(314, 226);
+            Shade_Select.Location = new Point(275, 170);
+            Shade_Select.Margin = new Padding(3, 2, 3, 2);
             Shade_Select.Name = "Shade_Select";
-            Shade_Select.Size = new Size(140, 61);
+            Shade_Select.Size = new Size(122, 46);
             Shade_Select.TabIndex = 9;
             Shade_Select.Text = "Shade";
             Shade_Select.UseVisualStyleBackColor = false;
@@ -133,9 +139,10 @@
             Confirm_Select.BackColor = SystemColors.WindowText;
             Confirm_Select.ForeColor = Color.Cornsilk;
             Confirm_Select.ImageAlign = ContentAlignment.BottomLeft;
-            Confirm_Select.Location = new Point(290, 426);
+            Confirm_Select.Location = new Point(254, 320);
+            Confirm_Select.Margin = new Padding(3, 2, 3, 2);
             Confirm_Select.Name = "Confirm_Select";
-            Confirm_Select.Size = new Size(164, 70);
+            Confirm_Select.Size = new Size(167, 72);
             Confirm_Select.TabIndex = 11;
             Confirm_Select.Text = "Confirm";
             Confirm_Select.UseVisualStyleBackColor = false;
@@ -148,21 +155,21 @@
             Display_Label.BackColor = SystemColors.ActiveCaptionText;
             Display_Label.BorderStyle = BorderStyle.Fixed3D;
             Display_Label.ForeColor = Color.Cornsilk;
-            Display_Label.Location = new Point(718, 122);
-            Display_Label.MaximumSize = new Size(400, 400);
-            Display_Label.MinimumSize = new Size(400, 400);
+            Display_Label.Location = new Point(628, 92);
+            Display_Label.MaximumSize = new Size(350, 300);
+            Display_Label.MinimumSize = new Size(350, 300);
             Display_Label.Name = "Display_Label";
-            Display_Label.Size = new Size(400, 400);
+            Display_Label.Size = new Size(350, 300);
             Display_Label.TabIndex = 12;
             Display_Label.Click += Display_Label_Click;
             // 
             // CharacterCreator
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(1237, 587);
+            ClientSize = new Size(1059, 414);
             Controls.Add(Display_Label);
             Controls.Add(Confirm_Select);
             Controls.Add(Shade_Select);
@@ -172,6 +179,7 @@
             Controls.Add(GraveKeeper_Select);
             Controls.Add(BackButton);
             Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "CharacterCreator";
             Text = "CharacterCreator";
             Load += CharacterCreator_Load;
