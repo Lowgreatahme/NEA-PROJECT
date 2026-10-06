@@ -25,7 +25,7 @@ namespace GameCORE.Combat
 
             
         }
-        public static int CalculateEnemyMagicDamage(Enemy attacker, AshBorn defender, Magic Magic)
+        public static int CalculateEnemyMagicDamage(Enemy attacker, AshBorn defender, Move Magic)
         {
             double RawDamage = 0;
             double BaseDamage = Magic.BasePower;
@@ -34,7 +34,7 @@ namespace GameCORE.Combat
             double Resistance = defender.TypeResistance[Magic.DamageType];
             double Mitigation = rng.Next(3, 7) / 100.0;
             RawDamage = ((BaseDamage + (AttackerMind) * Resistance) - (DefenderEndurance * Mitigation));
-            attacker.CurrentMana = attacker.CurrentMana - Magic.ManaCost;
+            
             return (int)RawDamage;
            
         }

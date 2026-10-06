@@ -9,19 +9,34 @@ namespace GameCORE.Combat
     {
         public string SelectMove(Enemy CurrentEnemy, AshBorn Player)
         {
+            
+            if (CurrentEnemy.moves == null || CurrentEnemy.moves.Count == 0)
+                return string.Empty;
+
             Random rnd = new Random();
             int RandomIndex = rnd.Next(0, CurrentEnemy.moves.Count);
 
-            if (CurrentEnemy.CurrentVigor > CurrentEnemy.CurrentVigor/2)
+            
+            if (CurrentEnemy.CurrentVigor > (CurrentEnemy.Vigor / 2))
             {
                 return CurrentEnemy.moves[RandomIndex].Name;
             }
             else
             {
-                int HalfnHalf = rnd.Next(0,2);
+                int HalfnHalf = rnd.Next(0, 2);
                 if (HalfnHalf == 1)
                 {
-                    return "Heal";
+                    
+                    for (int x = 0; x < CurrentEnemy.moves.Count; x++)
+                    {
+                        if (CurrentEnemy.moves[x].MoveType == Enumerations.MoveType.SupportiveMagic)
+                        {
+                            return CurrentEnemy.moves[x].Name;
+                        }
+                    }
+
+                   
+                    return CurrentEnemy.moves[RandomIndex].Name;
                 }
                 else
                 {

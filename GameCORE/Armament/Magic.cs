@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace GameCORE.Combat
+namespace GameCORE.Armament
 {
     public class Magic : Move
     {
