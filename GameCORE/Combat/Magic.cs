@@ -4,10 +4,10 @@ using System.Text;
 
 namespace GameCORE.Combat
 {
-    internal class Magic : Move
+    public class Magic : Move
     {
 
-        public int manaCost { get; set; }
+        public int ManaCost { get; set; }
 
     }
 }

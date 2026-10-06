@@ -11,6 +11,9 @@ namespace GameCORE.Characters
         public string Name { get; set; } = "";
         public int Vigor { get; set; }
         public int CurrentVigor { get; set; }
+
+        public int StartingMana { get; set; }
+        public int CurrentMana { get; set; }
         public int Strength { get; set; }
         public int Endurance { get; set; }
 

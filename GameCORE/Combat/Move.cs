@@ -8,6 +8,7 @@ namespace GameCORE.Combat
     public class Move
     {
         public string Name {  get; set; }
+        public MoveType MoveType { get; set; }
         public int BasePower { get; set; }
         public int Accuracy { get; set; }
 

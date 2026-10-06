@@ -7,7 +7,6 @@ public class AshBorn : Character
     public string classname { get; set; }
     public string Gender { get; set; }
     public int StartingMana { get; set; }
-    public int CurrentMana { get; set; }
     public string SpecialAbility { get; set; }
     public Weapon Weapon { get; set; }
     public Armour Armour { get; set; }

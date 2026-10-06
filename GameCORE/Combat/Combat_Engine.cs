@@ -1,4 +1,5 @@
 ﻿using GameCORE.Characters;
+using GameCORE.Enumerations;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -37,7 +38,7 @@ namespace GameCORE.Combat
                 AshBorn PlayerAttacker = (AshBorn)Attacker;
                 Enemy EnemyTarget = (Enemy)Target;
                 DamageCalculator DamageCalculator = new DamageCalculator();
-                int damage = DamageCalculator.CalculateDamage(PlayerAttacker, EnemyTarget, PlayerAttacker.Weapon);
+                int damage = DamageCalculator.CalculateDamage(PlayerAttacker, EnemyTarget, PlayerAttacker.Weapon, PlayerAttacker.moves[0]);
                 EnemyTarget.CurrentVigor = EnemyTarget.CurrentVigor - damage;
             }
             else if (Attacker is Enemy)
@@ -45,19 +46,38 @@ namespace GameCORE.Combat
                 Enemy EnemyAttacker = (Enemy)Attacker;
                 AshBorn AshBornTarget = (AshBorn)Target;
                 DamageCalculator DamageCalculator = new DamageCalculator();
+                MagicDamageCalculator MagicDamageCalculator = new MagicDamageCalculator();
                 EnemyAI enemyAI = new EnemyAI();
                 string move = enemyAI.SelectMove(EnemyAttacker, AshBornTarget);
                 for (int x = 0; x < EnemyAttacker.moves.Count; x++)
                 {
                     if (EnemyAttacker.moves[x].Name == move)
                     {
-                       int damage = DamageCalculator.CalculateEnemyDamage(EnemyAttacker, AshBornTarget, EnemyAttacker.moves[x]);
-                        AshBornTarget.CurrentVigor = AshBornTarget.CurrentVigor - damage;
-                        if (AshBornTarget.CurrentVigor <= 0)
+                        if (EnemyAttacker.moves[x].MoveType == MoveType.OffensiveMagic)
                         {
-                            //Player is Dead
+                            int MagicDamage = MagicDamageCalculator.CalculateEnemyMagicDamage(EnemyAttacker, AshBornTarget, EnemyAttacker.moves[x]);
+                            AshBornTarget.CurrentVigor = AshBornTarget.CurrentVigor - MagicDamage;
+                            if (AshBornTarget.CurrentVigor <= 0)
+                            {
+                                //Player is Dead!
+                            }
+                            else if (EnemyAttacker.moves[x].MoveType == MoveType.SupportiveMagic)
+                            {
+                                int Healing = HealingCalculator.CalculateEnemyHealing(EnemyAttacker, EnemyAttacker.moves[x]);
+                                EnemyAttacker.CurrentVigor = EnemyAttacker.CurrentVigor + Healing;
+                            }
+                           
                         }
-                        break;
+                        else
+                        {
+                            int damage = DamageCalculator.CalculateEnemyDamage(EnemyAttacker, AshBornTarget, EnemyAttacker.moves[x]);
+                            AshBornTarget.CurrentVigor = AshBornTarget.CurrentVigor - damage;
+                            if (AshBornTarget.CurrentVigor <= 0)
+                            {
+                                //Player is Dead!
+                            }
+                            break;
+                        }
                     }
                     
                 }
