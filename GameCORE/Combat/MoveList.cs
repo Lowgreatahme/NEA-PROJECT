@@ -13,11 +13,10 @@ namespace GameCORE.Combat
 
         public MoveList()
         {
-            moves.Add(new Move { Name = "Flail", BasePower = 20, Accuracy = 90, DamageType = DamageType.Physical, MoveType = MoveType.Physical });
-            moves.Add(new Move { Name = "Slash", BasePower = 30, Accuracy = 85, DamageType = DamageType.Physical, MoveType = MoveType.Physical });
-            moves.Add(new Magic { Name = "Fireball", BasePower = 40, Accuracy = 80, DamageType = DamageType.Fire, MoveType = MoveType.OffensiveMagic, ManaCost = 10 });
-            moves.Add(new Magic { Name = "Ice Shard", BasePower = 35, Accuracy = 85, DamageType = DamageType.Frost, MoveType = MoveType.OffensiveMagic, ManaCost = 8 });
-
+            moves.Add(new Move("Flail", MoveType.Physical, 20, DamageType.Physical));
+            moves.Add(new Move("Slash", MoveType.Physical, 30, DamageType.Physical));
+            moves.Add(new Magic("Fireball", MoveType.OffensiveMagic, 40, DamageType.Fire, 10));
+            moves.Add(new Magic("Ice Shard", MoveType.OffensiveMagic, 35, DamageType.Frost, 8));
         }
     }
 }
