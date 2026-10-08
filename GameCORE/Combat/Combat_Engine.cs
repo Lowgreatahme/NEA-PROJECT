@@ -32,28 +32,29 @@ namespace GameCORE.Combat
             }
             } while (enemy.CurrentVigor > 0 && Player.CurrentVigor > 0);
         }
+        public void ExcecutePlayerTurn(Character Attacker, Character Target, Move move)
+        {
+            AshBorn PlayerAttacker = (AshBorn)Attacker;
+            Enemy EnemyTarget = (Enemy)Target;
+            DamageCalculator DamageCalculator = new DamageCalculator();
+            int damage = DamageCalculator.CalculateDamage(PlayerAttacker, EnemyTarget, PlayerAttacker.Weapon, move);
+            EnemyTarget.CurrentVigor = EnemyTarget.CurrentVigor - damage;
+        }
         public void ExcecuteTurn(Character Attacker, Character Target)
         {
-            if (Attacker is AshBorn)
-            {
-                AshBorn PlayerAttacker = (AshBorn)Attacker;
-                Enemy EnemyTarget = (Enemy)Target;
-                DamageCalculator DamageCalculator = new DamageCalculator();
-                int damage = DamageCalculator.CalculateDamage(PlayerAttacker, EnemyTarget, PlayerAttacker.Weapon, PlayerAttacker.moves[0]);
-                EnemyTarget.CurrentVigor = EnemyTarget.CurrentVigor - damage;
-            }
-            else if (Attacker is Enemy)
+           
+             if (Attacker is Enemy)
             {
                 Enemy EnemyAttacker = (Enemy)Attacker;
                 AshBorn AshBornTarget = (AshBorn)Target;
                 DamageCalculator DamageCalculator = new DamageCalculator();
                 MagicDamageCalculator MagicDamageCalculator = new MagicDamageCalculator();
                 EnemyAI enemyAI = new EnemyAI();
-                string move = enemyAI.SelectMove(EnemyAttacker, AshBornTarget);
+                string Enemymove = enemyAI.SelectMove(EnemyAttacker, AshBornTarget);
                 
                 for (int x = 0; x < EnemyAttacker.moves.Count; x++)
                 {
-                    if (EnemyAttacker.moves[x].Name == move)
+                    if (EnemyAttacker.moves[x].Name == Enemymove)
                     {
                         if (EnemyAttacker.moves[x].MoveType == MoveType.OffensiveMagic) // ATTACKING MAGIC
                         {

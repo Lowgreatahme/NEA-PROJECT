@@ -1,5 +1,6 @@
 ﻿using GameCORE.Characters;
 using GameCORE.Combat;
+using GameCORE.Enumerations;
 using GameDATA;
 using System;
 using System.Collections.Generic;
@@ -41,14 +42,51 @@ namespace NEA_PROJECT
 
         private void Combat_Button_Click(object sender, EventArgs e)
         {
+            Button Move1 = new Button();
+            Button Move2 = new Button();
+
+            if (Player.moves[0].MoveType == MoveType.Physical)
+            {
+                Display_Panel.Controls.Clear();
+                
+                Move1.Size = new Size(120, 40);
+                Move1.Text = Player.moves[0].Name;
+                Display_Panel.Controls.Add(Move1);
+            }
+            if (Player.moves[1].MoveType == MoveType.Physical)
+            {
+                Display_Panel.Controls.Clear();
+               
+                Move2.Size = new Size(120, 40);
+                Move2.Text = Player.moves[1].Name;
+                Display_Panel.Controls.Add(Move2);
+            }
+            
+
+            
+
+
+            
+
+            Move1.Click += (s, args) =>
+            {
+                Combat_Engine CombatEngine = new Combat_Engine();
+                CombatEngine.ExcecutePlayerTurn(Player, Enemy1, Player.moves[0]);
+                BattleDisplay_Label.Text = Enemy1.Name + " HP: " + Enemy1.CurrentVigor;
+            };
+            Move2.Click += (s, args) =>
+            {
+                Combat_Engine CombatEngine = new Combat_Engine();
+                CombatEngine.ExcecutePlayerTurn(Player, Enemy1, Player.moves[1]);
+                BattleDisplay_Label.Text = Enemy1.Name + " HP: " + Enemy1.CurrentVigor;
+            };
+
             Combat_Engine CombatEngine = new Combat_Engine();
 
-            if (Enemies.Count > 0)
-            {
-                CombatEngine.ExcecuteTurn(Player, Enemies[0]);
-                BattleDisplay_Label.Text = Enemies[0].Name + " has " + Enemies[0].CurrentVigor + " Vigor remaining.";
-            }
+         
         }
+
+        
 
         private void Display_Panel_Paint(object sender, PaintEventArgs e) { }
 
