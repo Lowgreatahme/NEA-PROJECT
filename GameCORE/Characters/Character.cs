@@ -25,7 +25,7 @@ namespace GameCORE.Characters
         public int Mind { get; set; }
         public int Speed { get; set; }
         public int DodgeChance { get; set; }
-        public List<Move> moves { get; set; } = new List<Move>();
+        public List<Move> Moves { get; set; } = new List<Move>();
 
         public List<string> Inventory { get; set; } = new List<string>();
         public bool IsAlive;

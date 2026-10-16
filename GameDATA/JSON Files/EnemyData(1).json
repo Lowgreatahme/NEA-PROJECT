@@ -1,8 +1,11 @@
 [
   {
     "Name": "Ashen Hollow",
+    "IsBoss": false,
     "Vigor": 45,
     "CurrentVigor": 45,
+    "Mana": 0,
+    "CurrentMana": 0,
     "Strength": 8,
     "Endurance": 4,
     "Mind": 0,
@@ -10,42 +13,50 @@
     "DodgeChance": 2,
     "WeaponResistance": {
       "Physical": 1.0,
-      "Magic": 1.0,
-      "Fire": 1.5,
       "Holy": 0.5,
-      "Dark": 1.0
+      "Fire": 1.5,
+      "Dark": 1.0,
+      "Magic": 1.0,
+      "Frost": 1.0,
+      "Lightning": 1.0,
+      "Poison": 1.0
     },
     "TypeResistance": {
       "Physical": 1.0,
+      "Holy": 0.5,
+      "Fire": 1.5,
+      "Dark": 1.0,
       "Magic": 1.0,
-      "Fire": 1.0,
-      "Holy": 1.0,
-      "Dark": 1.0
+      "Frost": 1.0,
+      "Lightning": 1.0,
+      "Poison": 1.0
     },
     "Moves": [
       {
         "Name": "Flail",
         "MoveType": "Physical",
+        "DamageType": "Physical",
         "BasePower": 20,
         "Accuracy": 90,
-        "DamageType": "Physical",
         "ManaCost": 0
       },
       {
         "Name": "Gnaw",
         "MoveType": "Physical",
+        "DamageType": "Physical",
         "BasePower": 25,
         "Accuracy": 90,
-        "DamageType": "Physical",
         "ManaCost": 0
       }
-    ],
-    "IsBoss": false
+    ]
   },
   {
     "Name": "Veil Wretch",
+    "IsBoss": false,
     "Vigor": 60,
     "CurrentVigor": 60,
+    "Mana": 24,
+    "CurrentMana": 24,
     "Strength": 12,
     "Endurance": 6,
     "Mind": 4,
@@ -53,42 +64,50 @@
     "DodgeChance": 5,
     "WeaponResistance": {
       "Physical": 1.0,
-      "Magic": 0.5,
-      "Fire": 1.0,
       "Holy": 1.5,
-      "Dark": 1.0
+      "Fire": 1.0,
+      "Dark": 1.0,
+      "Magic": 0.5,
+      "Frost": 1.0,
+      "Lightning": 1.0,
+      "Poison": 1.0
     },
     "TypeResistance": {
       "Physical": 1.0,
-      "Magic": 1.0,
+      "Holy": 1.5,
       "Fire": 1.0,
-      "Holy": 1.0,
-      "Dark": 1.0
+      "Dark": 1.0,
+      "Magic": 0.5,
+      "Frost": 1.0,
+      "Lightning": 1.0,
+      "Poison": 1.0
     },
     "Moves": [
       {
         "Name": "Hex Bolt",
         "MoveType": "OffensiveMagic",
+        "DamageType": "Dark",
         "BasePower": 30,
         "Accuracy": 85,
-        "DamageType": "Dark",
         "ManaCost": 8
       },
       {
         "Name": "Claw",
         "MoveType": "Physical",
+        "DamageType": "Physical",
         "BasePower": 18,
         "Accuracy": 95,
-        "DamageType": "Physical",
         "ManaCost": 0
       }
-    ],
-    "IsBoss": false
+    ]
   },
   {
     "Name": "Ember Knight",
+    "IsBoss": false,
     "Vigor": 90,
     "CurrentVigor": 90,
+    "Mana": 18,
+    "CurrentMana": 18,
     "Strength": 16,
     "Endurance": 12,
     "Mind": 0,
@@ -96,42 +115,50 @@
     "DodgeChance": 8,
     "WeaponResistance": {
       "Physical": 0.5,
-      "Magic": 1.0,
-      "Fire": 2.0,
       "Holy": 1.0,
-      "Dark": 1.0
+      "Fire": 2.0,
+      "Dark": 1.0,
+      "Magic": 1.0,
+      "Frost": 1.5,
+      "Lightning": 1.0,
+      "Poison": 1.0
     },
     "TypeResistance": {
-      "Physical": 1.0,
-      "Magic": 1.0,
-      "Fire": 1.0,
+      "Physical": 0.5,
       "Holy": 1.0,
-      "Dark": 1.0
+      "Fire": 2.0,
+      "Dark": 1.0,
+      "Magic": 1.0,
+      "Frost": 1.5,
+      "Lightning": 1.0,
+      "Poison": 1.0
     },
     "Moves": [
       {
         "Name": "Sword Slam",
         "MoveType": "Physical",
+        "DamageType": "Physical",
         "BasePower": 35,
         "Accuracy": 80,
-        "DamageType": "Physical",
         "ManaCost": 0
       },
       {
         "Name": "Ember Strike",
         "MoveType": "OffensiveMagic",
+        "DamageType": "Fire",
         "BasePower": 32,
         "Accuracy": 85,
-        "DamageType": "Fire",
         "ManaCost": 6
       }
-    ],
-    "IsBoss": false
+    ]
   },
   {
     "Name": "Gloom Stalker",
+    "IsBoss": false,
     "Vigor": 75,
     "CurrentVigor": 75,
+    "Mana": 24,
+    "CurrentMana": 24,
     "Strength": 10,
     "Endurance": 8,
     "Mind": 8,
@@ -139,42 +166,50 @@
     "DodgeChance": 14,
     "WeaponResistance": {
       "Physical": 1.0,
-      "Magic": 1.5,
-      "Fire": 1.0,
       "Holy": 0.5,
-      "Dark": 0.5
+      "Fire": 1.0,
+      "Dark": 0.5,
+      "Magic": 1.5,
+      "Frost": 1.0,
+      "Lightning": 1.0,
+      "Poison": 1.0
     },
     "TypeResistance": {
       "Physical": 1.0,
-      "Magic": 1.0,
+      "Holy": 0.5,
       "Fire": 1.0,
-      "Holy": 1.0,
-      "Dark": 1.0
+      "Dark": 0.5,
+      "Magic": 1.5,
+      "Frost": 1.0,
+      "Lightning": 1.0,
+      "Poison": 1.0
     },
     "Moves": [
       {
         "Name": "Shadow Slash",
         "MoveType": "Physical",
+        "DamageType": "Dark",
         "BasePower": 28,
         "Accuracy": 90,
-        "DamageType": "Dark",
         "ManaCost": 0
       },
       {
         "Name": "Vanish",
         "MoveType": "DefensiveMagic",
+        "DamageType": "Dark",
         "BasePower": 0,
         "Accuracy": 100,
-        "DamageType": "Dark",
         "ManaCost": 8
       }
-    ],
-    "IsBoss": false
+    ]
   },
   {
     "Name": "Fallen Acolyte",
+    "IsBoss": false,
     "Vigor": 100,
     "CurrentVigor": 100,
+    "Mana": 30,
+    "CurrentMana": 30,
     "Strength": 14,
     "Endurance": 10,
     "Mind": 12,
@@ -182,42 +217,50 @@
     "DodgeChance": 6,
     "WeaponResistance": {
       "Physical": 1.0,
-      "Magic": 1.0,
-      "Fire": 1.0,
       "Holy": 1.5,
-      "Dark": 0.5
+      "Fire": 1.0,
+      "Dark": 0.5,
+      "Magic": 1.0,
+      "Frost": 1.0,
+      "Lightning": 1.0,
+      "Poison": 1.0
     },
     "TypeResistance": {
       "Physical": 1.0,
-      "Magic": 1.0,
+      "Holy": 1.5,
       "Fire": 1.0,
-      "Holy": 1.0,
-      "Dark": 1.0
+      "Dark": 0.5,
+      "Magic": 1.0,
+      "Frost": 1.0,
+      "Lightning": 1.0,
+      "Poison": 1.0
     },
     "Moves": [
       {
         "Name": "Sacred Flail",
         "MoveType": "Physical",
+        "DamageType": "Holy",
         "BasePower": 32,
         "Accuracy": 85,
-        "DamageType": "Holy",
         "ManaCost": 0
       },
       {
         "Name": "Atonement Heal",
         "MoveType": "SupportiveMagic",
+        "DamageType": "Holy",
         "BasePower": 25,
         "Accuracy": 100,
-        "DamageType": "Holy",
         "ManaCost": 10
       }
-    ],
-    "IsBoss": false
+    ]
   },
   {
     "Name": "Charred Omen",
+    "IsBoss": false,
     "Vigor": 140,
     "CurrentVigor": 140,
+    "Mana": 40,
+    "CurrentMana": 40,
     "Strength": 20,
     "Endurance": 16,
     "Mind": 6,
@@ -225,50 +268,58 @@
     "DodgeChance": 4,
     "WeaponResistance": {
       "Physical": 0.5,
-      "Magic": 1.0,
-      "Fire": 0.5,
       "Holy": 1.5,
-      "Dark": 1.0
+      "Fire": 0.5,
+      "Dark": 1.0,
+      "Magic": 1.0,
+      "Frost": 1.5,
+      "Lightning": 1.0,
+      "Poison": 1.0
     },
     "TypeResistance": {
-      "Physical": 1.0,
+      "Physical": 0.5,
+      "Holy": 1.5,
+      "Fire": 0.5,
+      "Dark": 1.0,
       "Magic": 1.0,
-      "Fire": 1.0,
-      "Holy": 1.0,
-      "Dark": 1.0
+      "Frost": 1.5,
+      "Lightning": 1.0,
+      "Poison": 1.0
     },
     "Moves": [
       {
         "Name": "Omen's Wrath",
         "MoveType": "OffensiveMagic",
+        "DamageType": "Dark",
         "BasePower": 40,
         "Accuracy": 75,
-        "DamageType": "Dark",
         "ManaCost": 12
       },
       {
         "Name": "Fire Breath",
         "MoveType": "OffensiveMagic",
+        "DamageType": "Fire",
         "BasePower": 35,
         "Accuracy": 85,
-        "DamageType": "Fire",
         "ManaCost": 10
       },
       {
         "Name": "Crush",
         "MoveType": "Physical",
+        "DamageType": "Physical",
         "BasePower": 45,
         "Accuracy": 75,
-        "DamageType": "Physical",
         "ManaCost": 0
       }
-    ],
-    "IsBoss": false
+    ]
   },
   {
     "Name": "Veilborne Abomination",
+    "IsBoss": true,
     "Vigor": 200,
     "CurrentVigor": 200,
+    "Mana": 56,
+    "CurrentMana": 56,
     "Strength": 24,
     "Endurance": 18,
     "Mind": 16,
@@ -276,50 +327,58 @@
     "DodgeChance": 6,
     "WeaponResistance": {
       "Physical": 1.0,
-      "Magic": 0.5,
-      "Fire": 0.5,
       "Holy": 2.0,
-      "Dark": 0.5
+      "Fire": 0.5,
+      "Dark": 0.5,
+      "Magic": 0.5,
+      "Frost": 1.0,
+      "Lightning": 1.0,
+      "Poison": 1.0
     },
     "TypeResistance": {
       "Physical": 1.0,
-      "Magic": 1.0,
-      "Fire": 1.0,
-      "Holy": 1.0,
-      "Dark": 1.0
+      "Holy": 2.0,
+      "Fire": 0.5,
+      "Dark": 0.5,
+      "Magic": 0.5,
+      "Frost": 1.0,
+      "Lightning": 1.0,
+      "Poison": 1.0
     },
     "Moves": [
       {
         "Name": "Void Slam",
         "MoveType": "Physical",
+        "DamageType": "Dark",
         "BasePower": 50,
         "Accuracy": 80,
-        "DamageType": "Dark",
         "ManaCost": 0
       },
       {
         "Name": "Tendril Whip",
         "MoveType": "Physical",
+        "DamageType": "Dark",
         "BasePower": 35,
         "Accuracy": 90,
-        "DamageType": "Dark",
         "ManaCost": 0
       },
       {
         "Name": "Maddening Gaze",
         "MoveType": "OffensiveMagic",
+        "DamageType": "Dark",
         "BasePower": 40,
         "Accuracy": 85,
-        "DamageType": "Dark",
         "ManaCost": 14
       }
-    ],
-    "IsBoss": true
+    ]
   },
   {
     "Name": "Lord of Cinders",
+    "IsBoss": true,
     "Vigor": 280,
     "CurrentVigor": 280,
+    "Mana": 120,
+    "CurrentMana": 120,
     "Strength": 28,
     "Endurance": 22,
     "Mind": 20,
@@ -327,52 +386,65 @@
     "DodgeChance": 4,
     "WeaponResistance": {
       "Physical": 0.5,
-      "Magic": 1.0,
-      "Fire": 0.5,
       "Holy": 1.0,
-      "Dark": 2.0
+      "Fire": 0.5,
+      "Dark": 2.0,
+      "Magic": 1.0,
+      "Frost": 1.5,
+      "Lightning": 1.0,
+      "Poison": 1.0
     },
     "TypeResistance": {
-      "Physical": 1.0,
-      "Magic": 1.0,
-      "Fire": 1.0,
+      "Physical": 0.5,
       "Holy": 1.0,
-      "Dark": 1.0
+      "Fire": 0.5,
+      "Dark": 2.0,
+      "Magic": 1.0,
+      "Frost": 1.5,
+      "Lightning": 1.0,
+      "Poison": 1.0
     },
     "Moves": [
       {
         "Name": "Cinder Storm",
         "MoveType": "OffensiveMagic",
+        "DamageType": "Fire",
         "BasePower": 55,
         "Accuracy": 75,
-        "DamageType": "Fire",
         "ManaCost": 18
       },
       {
         "Name": "Soul Rend",
         "MoveType": "OffensiveMagic",
+        "DamageType": "Dark",
         "BasePower": 45,
         "Accuracy": 85,
-        "DamageType": "Dark",
         "ManaCost": 15
       },
       {
         "Name": "Ash Eruption",
         "MoveType": "OffensiveMagic",
+        "DamageType": "Fire",
         "BasePower": 60,
         "Accuracy": 70,
-        "DamageType": "Fire",
         "ManaCost": 20
       },
       {
         "Name": "Ember Heal",
         "MoveType": "SupportiveMagic",
+        "DamageType": "Fire",
         "BasePower": 40,
         "Accuracy": 100,
-        "DamageType": "Fire",
         "ManaCost": 16
+      },
+      {
+        "Name": "Cinder Slash",
+        "MoveType": "Physical",
+        "DamageType": "Physical",
+        "BasePower": 40,
+        "Accuracy": 85,
+        "ManaCost": 0
       }
-    ],
-    "IsBoss": true
+    ]
   }
 ]

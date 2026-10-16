@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace GameDATA
 {
@@ -14,8 +14,8 @@ namespace GameDATA
         public List<Enemy> LoadEnemies(string path)
         {
             string json = File.ReadAllText(path);
-            return JsonSerializer.Deserialize<List<Enemy>>(json);
-
+            List<Enemy> enemies = JsonConvert.DeserializeObject<List<Enemy>>(json);
+            return enemies;
         }
     }
 }
