@@ -18,12 +18,32 @@ namespace NEA_PROJECT
     {
         public List<Enemy> Enemies = new List<Enemy>(); //List of enemies loaded from the JSON file
         public Enemy Enemy1;
+
+        public void ActiveTurn(Move SelectedMove)
+        {
+         Combat_Engine combat_Engine = new Combat_Engine();
+            combat_Engine.ExcecutePlayerTurn(Player, Enemy1, SelectedMove);
+
+            if (Enemy1.CurrentVigor > 0)
+            {
+                combat_Engine.ExcecuteTurn(Enemy1, Player);
+            }
+           
+            
+            BattleDisplay_Label.Text = "You used " + SelectedMove.Name + " on " + Enemy1.Name + " for " + SelectedMove.BasePower + " damage!";
+            BattleDisplay_Label.Text = Enemy1.Name + " HP: " + Enemy1.CurrentVigor;
+            BattleDisplay_Label.Text = BattleDisplay_Label.Text + "\n" + Player.Name + " HP: " + Player.CurrentVigor;
+
+
+        }
         public CombatForm()
         {
 
 
             InitializeComponent();
             Enemies = JsonLoader.LoadEnemies("JSON Files\\EnemyData.json");
+
+            
 
             if (Enemies != null && Enemies.Count > 0)
             {
@@ -125,15 +145,19 @@ namespace NEA_PROJECT
 
                 Move1.Click += (s, args) =>
             {
-                Combat_Engine CombatEngine = new Combat_Engine();
-                CombatEngine.ExcecutePlayerTurn(Player, Enemy1, Player.moves[0]);
-                BattleDisplay_Label.Text = Enemy1.Name + " HP: " + Enemy1.CurrentVigor;
+                ActiveTurn(Player.moves[0]);
             };
                 Move2.Click += (s, args) =>
                 {
-                    Combat_Engine CombatEngine = new Combat_Engine();
-                    CombatEngine.ExcecutePlayerTurn(Player, Enemy1, Player.moves[1]);
-                    BattleDisplay_Label.Text = Enemy1.Name + " HP: " + Enemy1.CurrentVigor;
+                    ActiveTurn(Player.moves[1]);
+                };
+                Move3.Click += (s, args) =>
+                {
+                    ActiveTurn(Player.moves[2]);
+                };
+                Move4.Click += (s, args) =>
+                {
+                    ActiveTurn(Player.moves[3]);
                 };
 
             }
@@ -218,9 +242,26 @@ namespace NEA_PROJECT
                 MovesMade++;
 
             }
-            
-            
-            
+            Move1.Click += (s, args) =>
+            {
+                ActiveTurn(Player.moves[0]);
+            };
+            Move2.Click += (s, args) =>
+            {
+                ActiveTurn(Player.moves[1]);
+            };
+            Move3.Click += (s, args) =>
+            {
+                ActiveTurn(Player.moves[2]);
+
+            };
+            Move4.Click += (s, args) =>
+            {
+                ActiveTurn(Player.moves[3]);
+            };
+
+
+
         }
     }
 }

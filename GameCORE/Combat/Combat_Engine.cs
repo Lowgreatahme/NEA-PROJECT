@@ -9,9 +9,9 @@ namespace GameCORE.Combat
 {
     public class Combat_Engine
     {
-        public void TurnOrder(Enemy enemy, AshBorn Player)
+        public void TurnOrder(Enemy enemy, AshBorn Player, Move move)
         {
-          do {
+          
             if (enemy.Speed > Player.Speed || enemy.Speed == Player.Speed)
             {
                 ExcecuteTurn(enemy, Player);
@@ -30,15 +30,36 @@ namespace GameCORE.Combat
                 }
                 
             }
-            } while (enemy.CurrentVigor > 0 && Player.CurrentVigor > 0);
+            
         }
         public void ExcecutePlayerTurn(Character Attacker, Character Target, Move move)
         {
             AshBorn PlayerAttacker = (AshBorn)Attacker;
             Enemy EnemyTarget = (Enemy)Target;
-            DamageCalculator DamageCalculator = new DamageCalculator();
-            int damage = DamageCalculator.CalculateDamage(PlayerAttacker, EnemyTarget, PlayerAttacker.Weapon, move);
-            EnemyTarget.CurrentVigor = EnemyTarget.CurrentVigor - damage;
+
+            if (move.MoveType == MoveType.Physical)
+            {
+                
+                int damage = DamageCalculator.CalculateDamage(PlayerAttacker, EnemyTarget, PlayerAttacker.Weapon, move);
+                EnemyTarget.CurrentVigor = EnemyTarget.CurrentVigor - damage;
+            }
+            if (move.MoveType == MoveType.OffensiveMagic)
+            {
+               
+                int Magicdamage = MagicDamageCalculator.CalculateMagicDamage(PlayerAttacker, EnemyTarget, move, PlayerAttacker.Weapon);
+                EnemyTarget.CurrentVigor = EnemyTarget.CurrentVigor - Magicdamage;
+                Magic MagicMove = (Magic)move;
+                PlayerAttacker.CurrentMana -= MagicMove.ManaCost;
+            }
+            if (move.MoveType == MoveType.SupportiveMagic)
+            {
+                int Healing = HealingCalculator.CalculateHealing(PlayerAttacker, (Magic)move, PlayerAttacker.Weapon);
+                PlayerAttacker.CurrentVigor = PlayerAttacker.CurrentVigor + Healing;
+                Magic HealingMove = (Magic)move;
+                PlayerAttacker.CurrentMana -= HealingMove.ManaCost;
+            }
+
+            
         }
         public void ExcecuteTurn(Character Attacker, Character Target)
         {
@@ -76,7 +97,7 @@ namespace GameCORE.Combat
                             Magic HealingMove = (Magic)EnemyAttacker.moves[x];
                             EnemyAttacker.CurrentMana -= HealingMove.ManaCost;
                         }
-                        else
+                        else if (EnemyAttacker.moves[x].MoveType == MoveType.Physical)
                         {
                             int damage = DamageCalculator.CalculateEnemyDamage(EnemyAttacker, AshBornTarget, EnemyAttacker.moves[x]); // PHYSICAL ATTACK
                             AshBornTarget.CurrentVigor = AshBornTarget.CurrentVigor - damage;
@@ -87,6 +108,8 @@ namespace GameCORE.Combat
                             }
                             
                         }
+                       
+
                     }
                     
                 }

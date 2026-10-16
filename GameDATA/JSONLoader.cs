@@ -1,10 +1,11 @@
-﻿using GameCORE.Characters;
-
+﻿using GameCORE.Armament;
+using GameCORE.Characters;
+using GameCORE.Combat;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text.Json;
 using System.Text;
+using System.Text.Json;
 
 namespace GameDATA
 {
@@ -14,6 +15,7 @@ namespace GameDATA
         {
             string json = File.ReadAllText(path);
             return JsonSerializer.Deserialize<List<Enemy>>(json);
+
         }
     }
 }

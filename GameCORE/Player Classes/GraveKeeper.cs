@@ -25,8 +25,8 @@ namespace GameCORE.Player_Classes
             
             moves.Add(new Move("Shovel Strike", MoveType.Physical, 30, DamageType.Physical));
             moves.Add(new Move("Wraith Grip", MoveType.Physical, 40, DamageType.Dark));
-            moves.Add(new Move("Crucify", MoveType.OffensiveMagic, 50, DamageType.Holy));
-            moves.Add(new Move("Soul Harvest", MoveType.SupportiveMagic, 0, DamageType.Dark));
+            moves.Add(new Magic("Crucify", MoveType.OffensiveMagic, 50, DamageType.Holy, 20));
+            moves.Add(new Magic("Soul Harvest", MoveType.SupportiveMagic, 50, DamageType.Dark, 50));
 
 
             TypeResistance = new Dictionary<DamageType, double>
