@@ -23,14 +23,10 @@ namespace NEA_PROJECT
         {
          Combat_Engine combat_Engine = new Combat_Engine();
             combat_Engine.ExcecutePlayerTurn(Player, Enemy1, SelectedMove);
+            combat_Engine.ExcecuteTurn(Enemy1, Player);
 
-            if (Enemy1.CurrentVigor > 0)
-            {
-                combat_Engine.ExcecuteTurn(Enemy1, Player);
-            }
-           
-            
             BattleDisplay_Label.Text = "You used " + SelectedMove.Name + " on " + Enemy1.Name + " for " + SelectedMove.BasePower + " damage!";
+            BattleDisplay_Label.Text = BattleDisplay_Label.Text + "\n" + Enemy1.Name + " used " + combat_Engine.ChosenMove + " on you for " + Enemy1.Moves[0].BasePower + " damage!";
             BattleDisplay_Label.Text = Enemy1.Name + " HP: " + Enemy1.CurrentVigor;
             BattleDisplay_Label.Text = BattleDisplay_Label.Text + "\n" + Player.Name + " HP: " + Player.CurrentVigor;
 
@@ -48,7 +44,7 @@ namespace NEA_PROJECT
             if (Enemies != null && Enemies.Count > 0)
             {
                 MessageBox.Show("Enemies loaded: " + Enemies.Count);
-                MessageBox.Show("Player moves: " + Player.moves.Count);
+                MessageBox.Show("Player moves: " + Player.Moves.Count);
                 Enemy1 = Enemies[0];
                 BattleDisplay_Label.Text = Enemy1.Name;
             }
@@ -65,7 +61,7 @@ namespace NEA_PROJECT
 
         private void Combat_Button_Click(object sender, EventArgs e)
         {
-
+            
 
             Display_Panel.Controls.Clear();
             Button Move1 = new Button();
@@ -76,20 +72,20 @@ namespace NEA_PROJECT
             int CurrentY = Move1.Location.Y;
             int MovesMade = 0;
 
-            if (Player.moves[0].MoveType == MoveType.Physical)
+            if (Player.Moves[0].MoveType == MoveType.Physical)
             {
 
                 Move1.Size = new Size(120, 40);
-                Move1.Text = Player.moves[0].Name;
+                Move1.Text = Player.Moves[0].Name;
                 Display_Panel.Controls.Add(Move1);
 
                 MovesMade++;
             }
-            if (Player.moves[1].MoveType == MoveType.Physical)
+            if (Player.Moves[1].MoveType == MoveType.Physical)
             {
 
                 Move2.Size = new Size(120, 40);
-                Move2.Text = Player.moves[1].Name;
+                Move2.Text = Player.Moves[1].Name;
                 Display_Panel.Controls.Add(Move2);
 
                 if (MovesMade == 1)
@@ -98,11 +94,11 @@ namespace NEA_PROJECT
                 }
                 MovesMade++;
             }
-            if (Player.moves[2].MoveType == MoveType.Physical)
+            if (Player.Moves[2].MoveType == MoveType.Physical)
             {
 
                 Move3.Size = new Size(120, 40);
-                Move3.Text = Player.moves[2].Name;
+                Move3.Text = Player.Moves[2].Name;
                 Display_Panel.Controls.Add(Move3);
 
                 if (MovesMade == 2)
@@ -116,11 +112,11 @@ namespace NEA_PROJECT
                 }
                 MovesMade++;
             }
-            if (Player.moves[3].MoveType == MoveType.Physical)
+            if (Player.Moves[3].MoveType == MoveType.Physical)
             {
 
                 Move4.Size = new Size(120, 40);
-                Move4.Text = Player.moves[3].Name;
+                Move4.Text = Player.Moves[3].Name;
                 Display_Panel.Controls.Add(Move4);
                 if (MovesMade == 3)
                 {
@@ -136,7 +132,7 @@ namespace NEA_PROJECT
                 }
                 MovesMade++;
 
-
+            }
 
 
 
@@ -145,23 +141,23 @@ namespace NEA_PROJECT
 
                 Move1.Click += (s, args) =>
             {
-                ActiveTurn(Player.moves[0]);
+                ActiveTurn(Player.Moves[0]);
             };
                 Move2.Click += (s, args) =>
                 {
-                    ActiveTurn(Player.moves[1]);
+                    ActiveTurn(Player.Moves[1]);
                 };
                 Move3.Click += (s, args) =>
                 {
-                    ActiveTurn(Player.moves[2]);
+                    ActiveTurn(Player.Moves[2]);
                 };
                 Move4.Click += (s, args) =>
                 {
-                    ActiveTurn(Player.moves[3]);
+                    ActiveTurn(Player.Moves[3]);
                 };
 
             }
-        }
+        
 
          
         
@@ -181,20 +177,20 @@ namespace NEA_PROJECT
             int CurrentY = Move1.Location.Y;
             int MovesMade = 0;
 
-            if (Player.moves[0].MoveType == MoveType.OffensiveMagic || Player.moves[0].MoveType == MoveType.SupportiveMagic)
+            if (Player.Moves[0].MoveType == MoveType.OffensiveMagic || Player.Moves[0].MoveType == MoveType.SupportiveMagic)
             {
                 
                 Move1.Size = new Size(120, 40);
-                Move1.Text = Player.moves[0].Name;
+                Move1.Text = Player.Moves[0].Name;
                 Display_Panel.Controls.Add(Move1);
                 
                 MovesMade++;
             }
-            if (Player.moves[1].MoveType == MoveType.OffensiveMagic || Player.moves[1].MoveType == MoveType.SupportiveMagic)
+            if (Player.Moves[1].MoveType == MoveType.OffensiveMagic || Player.Moves[1].MoveType == MoveType.SupportiveMagic)
             {
                 
                 Move2.Size = new Size(120, 40);
-                Move2.Text = Player.moves[1].Name;
+                Move2.Text = Player.Moves[1].Name;
                 Display_Panel.Controls.Add(Move2);
                 
                 if (MovesMade == 1)
@@ -203,11 +199,11 @@ namespace NEA_PROJECT
                 }
                 MovesMade++;
             }
-            if (Player.moves[2].MoveType == MoveType.OffensiveMagic || Player.moves[2].MoveType == MoveType.SupportiveMagic)
+            if (Player.Moves[2].MoveType == MoveType.OffensiveMagic || Player.Moves[2].MoveType == MoveType.SupportiveMagic)
             {
                 
                 Move3.Size = new Size(120, 40);
-                Move3.Text = Player.moves[2].Name;
+                Move3.Text = Player.Moves[2].Name;
                 Display_Panel.Controls.Add(Move3);
                 
                 if (MovesMade == 2)
@@ -221,11 +217,11 @@ namespace NEA_PROJECT
                 }
                 MovesMade++;
             }
-            if (Player.moves[3].MoveType == MoveType.OffensiveMagic || Player.moves[3].MoveType == MoveType.SupportiveMagic)
+            if (Player.Moves[3].MoveType == MoveType.OffensiveMagic || Player.Moves[3].MoveType == MoveType.SupportiveMagic)
             {
                 
                 Move4.Size = new Size(120, 40);
-                Move4.Text = Player.moves[3].Name;
+                Move4.Text = Player.Moves[3].Name;
                 Display_Panel.Controls.Add(Move4);
                 if (MovesMade == 3)
                 {
@@ -244,20 +240,20 @@ namespace NEA_PROJECT
             }
             Move1.Click += (s, args) =>
             {
-                ActiveTurn(Player.moves[0]);
+                ActiveTurn(Player.Moves[0]);
             };
             Move2.Click += (s, args) =>
             {
-                ActiveTurn(Player.moves[1]);
+                ActiveTurn(Player.Moves[1]);
             };
             Move3.Click += (s, args) =>
             {
-                ActiveTurn(Player.moves[2]);
+                ActiveTurn(Player.Moves[2]);
 
             };
             Move4.Click += (s, args) =>
             {
-                ActiveTurn(Player.moves[3]);
+                ActiveTurn(Player.Moves[3]);
             };
 
 

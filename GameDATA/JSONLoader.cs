@@ -16,6 +16,7 @@ namespace GameDATA
             string json = File.ReadAllText(path);
             List<Enemy> enemies = JsonConvert.DeserializeObject<List<Enemy>>(json);
             return enemies;
+            
         }
     }
 }

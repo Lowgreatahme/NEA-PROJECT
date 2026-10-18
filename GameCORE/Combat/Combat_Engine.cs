@@ -9,6 +9,7 @@ namespace GameCORE.Combat
 {
     public class Combat_Engine
     {
+        public string ChosenMove;
         public void TurnOrder(Enemy enemy, AshBorn Player, Move move)
         {
           
@@ -48,15 +49,14 @@ namespace GameCORE.Combat
                
                 int Magicdamage = MagicDamageCalculator.CalculateMagicDamage(PlayerAttacker, EnemyTarget, move, PlayerAttacker.Weapon);
                 EnemyTarget.CurrentVigor = EnemyTarget.CurrentVigor - Magicdamage;
-                Magic MagicMove = (Magic)move;
-                PlayerAttacker.CurrentMana -= MagicMove.ManaCost;
+                Attacker.CurrentMana -= move.ManaCost;
             }
             if (move.MoveType == MoveType.SupportiveMagic)
             {
-                int Healing = HealingCalculator.CalculateHealing(PlayerAttacker, (Magic)move, PlayerAttacker.Weapon);
+                int Healing = HealingCalculator.CalculateHealing(PlayerAttacker, move, PlayerAttacker.Weapon);
                 PlayerAttacker.CurrentVigor = PlayerAttacker.CurrentVigor + Healing;
-                Magic HealingMove = (Magic)move;
-                PlayerAttacker.CurrentMana -= HealingMove.ManaCost;
+                Attacker.CurrentMana -= move.ManaCost;
+
             }
 
             
@@ -71,35 +71,55 @@ namespace GameCORE.Combat
                 DamageCalculator DamageCalculator = new DamageCalculator();
                 MagicDamageCalculator MagicDamageCalculator = new MagicDamageCalculator();
                 EnemyAI enemyAI = new EnemyAI();
-                string Enemymove = enemyAI.SelectMove(EnemyAttacker, AshBornTarget);
+                 string Enemymove;
+                bool loop = true;
                 
-                for (int x = 0; x < EnemyAttacker.moves.Count; x++)
+
+do
+{
+    Enemymove = enemyAI.SelectMove(EnemyAttacker, AshBornTarget);
+
+    loop = true; // assume invalid until proven otherwise
+    for (int i = 0; i < EnemyAttacker.Moves.Count; i++)
+    {
+        if (EnemyAttacker.Moves[i].Name == Enemymove)
+        {
+            loop = false; // found valid move
+            break;        // stop scanning immediately
+        }
+    }
+
+} while (loop); // use boolean check, not assignment
+
+
+                for (int x = 0; x < EnemyAttacker.Moves.Count; x++)
                 {
-                    if (EnemyAttacker.moves[x].Name == Enemymove)
+                    if (EnemyAttacker.Moves[x].Name == Enemymove)
                     {
-                        if (EnemyAttacker.moves[x].MoveType == MoveType.OffensiveMagic) // ATTACKING MAGIC
+                        if (EnemyAttacker.Moves[x].MoveType == MoveType.OffensiveMagic) // ATTACKING MAGIC
                         {
-                            int MagicDamage = MagicDamageCalculator.CalculateEnemyMagicDamage(EnemyAttacker, AshBornTarget, EnemyAttacker.moves[x]);
+                            ChosenMove = EnemyAttacker.Moves[x].Name;
+                            int MagicDamage = MagicDamageCalculator.CalculateEnemyMagicDamage(EnemyAttacker, AshBornTarget, EnemyAttacker.Moves[x]);
                             AshBornTarget.CurrentVigor = AshBornTarget.CurrentVigor - MagicDamage;
-                            Magic MagicMove = (Magic)EnemyAttacker.moves[x]; // Converts the Move to a Magic type so I can access the ManaCost
-                            EnemyAttacker.CurrentMana -= MagicMove.ManaCost;
-                        
+                            EnemyAttacker.CurrentMana -= EnemyAttacker.Moves[x].ManaCost;
+
                             if (AshBornTarget.CurrentVigor <= 0)
                             {
                                 //Player is Dead!
                                 break;
                             }
                         }
-                        else if (EnemyAttacker.moves[x].MoveType == MoveType.SupportiveMagic) // HEALING MAGIC
+                        else if (EnemyAttacker.Moves[x].MoveType == MoveType.SupportiveMagic) // HEALING MAGIC
                         {
-                            int Healing = HealingCalculator.CalculateEnemyHealing(EnemyAttacker, EnemyAttacker.moves[x]);
+                            ChosenMove = EnemyAttacker.Moves[x].Name;
+                            int Healing = HealingCalculator.CalculateEnemyHealing(EnemyAttacker, EnemyAttacker.Moves[x]);
                             EnemyAttacker.CurrentVigor = EnemyAttacker.CurrentVigor + Healing;
-                            Magic HealingMove = (Magic)EnemyAttacker.moves[x];
-                            EnemyAttacker.CurrentMana -= HealingMove.ManaCost;
+                            EnemyAttacker.CurrentMana -= EnemyAttacker.Moves[x].ManaCost;
                         }
-                        else if (EnemyAttacker.moves[x].MoveType == MoveType.Physical)
+                        else if (EnemyAttacker.Moves[x].MoveType == MoveType.Physical)
                         {
-                            int damage = DamageCalculator.CalculateEnemyDamage(EnemyAttacker, AshBornTarget, EnemyAttacker.moves[x]); // PHYSICAL ATTACK
+                            ChosenMove = EnemyAttacker.Moves[x].Name;
+                            int damage = DamageCalculator.CalculateEnemyDamage(EnemyAttacker, AshBornTarget, EnemyAttacker.Moves[x]); // PHYSICAL ATTACK
                             AshBornTarget.CurrentVigor = AshBornTarget.CurrentVigor - damage;
                             if (AshBornTarget.CurrentVigor <= 0)
                             {

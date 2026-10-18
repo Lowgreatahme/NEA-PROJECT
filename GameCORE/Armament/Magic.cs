@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using GameCORE.Enumerations;    
+using GameCORE.Enumerations;
 
 namespace GameCORE.Armament
 {
     public class Magic : Move
     {
-        public Magic(string Name, MoveType MoveType, int BasePower, DamageType DamageType, int ManaCost)
-            : base(Name, MoveType, BasePower, DamageType)
-        {
-            this.ManaCost = ManaCost;
-        }
+
 
         public int ManaCost { get; set; }
 
+    
+    public Magic(string name, MoveType moveType, int basePower, DamageType damageType, int manaCost)
+    : base(name, moveType, basePower, damageType, manaCost)
+    {
+        ManaCost = manaCost;
+    }
     }
 }
