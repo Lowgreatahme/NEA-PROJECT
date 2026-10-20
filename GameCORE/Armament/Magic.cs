@@ -13,7 +13,7 @@ namespace GameCORE.Armament
 
     
     public Magic(string name, MoveType moveType, int basePower, DamageType damageType, int manaCost)
-    : base(name, moveType, basePower, damageType, manaCost)
+    : base(name, moveType, basePower, damageType, manaCost, 0)
     {
         ManaCost = manaCost;
     }

@@ -2,8 +2,8 @@
   {
     "Name": "Ashen Hollow",
     "IsBoss": false,
-    "Vigor": 45,
-    "CurrentVigor": 45,
+    "Vigor": 120,
+    "CurrentVigor": 120,
     "Mana": 20,
     "CurrentMana": 20,
     "Strength": 8,
@@ -375,8 +375,8 @@
   {
     "Name": "Lord of Cinders",
     "IsBoss": true,
-    "Vigor": 280,
-    "CurrentVigor": 280,
+    "Vigor": 2800,
+    "CurrentVigor": 2800,
     "Mana": 120,
     "CurrentMana": 120,
     "Strength": 28,

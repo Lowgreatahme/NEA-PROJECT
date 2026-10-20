@@ -1,4 +1,5 @@
 ﻿using GameCORE.Enumerations;
+using GameCORE.Armament;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,6 +21,12 @@ namespace GameCORE.Player_Classes
             CurrentMana = 80;
             SpecialAbility = "Veil Walk";
             GetDescription = "A wraith-like assassin who slips between realities, striking from the darkness before vanishing without a trace.";
+            Weapon = new Weapon { Name = "Shadow Dagger", DamageType = DamageType.Physical, BaseDamage = 12, Description = "A dagger forged from the essence of shadows, allowing the wielder to strike unseen.", StrengthMultiplier = 1.0, MindMultiplier = 1.2, Rarity = Rarity.Rare };
+
+            Moves.Add(new Move("Shadow Strike", MoveType.Physical, 30, DamageType.Physical, 90, 0));
+            Moves.Add(new Move("Phantom Slash", MoveType.Physical, 50, DamageType.Dark, 80, 0));
+            Moves.Add(new Magic("Dark Bolt", MoveType.OffensiveMagic, 40, DamageType.Dark, 15));
+            Moves.Add(new Magic("Ethereal Veil", MoveType.DefensiveMagic, 0, DamageType.Dark, 20));
 
             TypeResistance = new Dictionary<DamageType, double>
 {

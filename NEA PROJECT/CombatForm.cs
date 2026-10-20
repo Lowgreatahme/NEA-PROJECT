@@ -21,14 +21,41 @@ namespace NEA_PROJECT
 
         public void ActiveTurn(Move SelectedMove)
         {
+            string log = Enemy1.Name + " HP: " + Enemy1.CurrentVigor + "\n" + Player.Name + " HP: " + Player.CurrentVigor;
          Combat_Engine combat_Engine = new Combat_Engine();
-            combat_Engine.ExcecutePlayerTurn(Player, Enemy1, SelectedMove);
-            combat_Engine.ExcecuteTurn(Enemy1, Player);
+            BattleDisplay_Label.Text = log;
+            if (Player.CurrentMana < SelectedMove.ManaCost)
+            {
+                BattleDisplay_Label.Controls.Clear();
+                BattleDisplay_Label.Text = "Not Enough Mana!";
+                return;
+            }
+            else
+            {
+                
+                
+                    combat_Engine.TurnOrder(Enemy1, Player, SelectedMove);
+                if (Enemy1.CurrentVigor <= 0)
+                {
+                    BattleDisplay_Label.Controls.Clear();
+                    BattleDisplay_Label.Text = "Victory!";
+                    return;
+                }
+                else if (Player.CurrentVigor <= 0)
+                {
+                    BattleDisplay_Label.Controls.Clear();
+                    BattleDisplay_Label.Text = "LOST!";
+                    return;
+                }
+                else
+                {
+                       BattleDisplay_Label.Controls.Clear();
+                    BattleDisplay_Label.Text = log;
+                }
+                
+                
 
-            BattleDisplay_Label.Text = "You used " + SelectedMove.Name + " on " + Enemy1.Name + " for " + SelectedMove.BasePower + " damage!";
-            BattleDisplay_Label.Text = BattleDisplay_Label.Text + "\n" + Enemy1.Name + " used " + combat_Engine.ChosenMove + " on you for " + Enemy1.Moves[0].BasePower + " damage!";
-            BattleDisplay_Label.Text = Enemy1.Name + " HP: " + Enemy1.CurrentVigor;
-            BattleDisplay_Label.Text = BattleDisplay_Label.Text + "\n" + Player.Name + " HP: " + Player.CurrentVigor;
+            }
 
 
         }
@@ -45,7 +72,7 @@ namespace NEA_PROJECT
             {
                 MessageBox.Show("Enemies loaded: " + Enemies.Count);
                 MessageBox.Show("Player moves: " + Player.Moves.Count);
-                Enemy1 = Enemies[0];
+                Enemy1 = Enemies[7];
                 BattleDisplay_Label.Text = Enemy1.Name;
             }
             else

@@ -18,13 +18,13 @@ namespace GameCORE.Combat
                 ExcecuteTurn(enemy, Player);
                 if (Player.CurrentVigor > 0)
                 {
-                    ExcecuteTurn(Player, enemy);
+                    ExcecutePlayerTurn(Player, enemy, move);
                 }
                
             }
             if (enemy.Speed < Player.Speed)
             {
-                ExcecuteTurn(Player, enemy);
+                ExcecutePlayerTurn(Player, enemy, move);
                 if (enemy.CurrentVigor > 0)
                 {
                     ExcecuteTurn(enemy, Player);
@@ -68,10 +68,8 @@ namespace GameCORE.Combat
             {
                 Enemy EnemyAttacker = (Enemy)Attacker;
                 AshBorn AshBornTarget = (AshBorn)Target;
-                DamageCalculator DamageCalculator = new DamageCalculator();
-                MagicDamageCalculator MagicDamageCalculator = new MagicDamageCalculator();
                 EnemyAI enemyAI = new EnemyAI();
-                 string Enemymove;
+                string Enemymove;
                 bool loop = true;
                 
 
@@ -79,17 +77,17 @@ do
 {
     Enemymove = enemyAI.SelectMove(EnemyAttacker, AshBornTarget);
 
-    loop = true; // assume invalid until proven otherwise
+    loop = true;
     for (int i = 0; i < EnemyAttacker.Moves.Count; i++)
     {
         if (EnemyAttacker.Moves[i].Name == Enemymove)
         {
-            loop = false; // found valid move
-            break;        // stop scanning immediately
+            loop = false;
+            break;        
         }
     }
 
-} while (loop); // use boolean check, not assignment
+} while (loop);
 
 
                 for (int x = 0; x < EnemyAttacker.Moves.Count; x++)

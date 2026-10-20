@@ -11,16 +11,17 @@ namespace GameCORE.Armament
         public MoveType MoveType { get; set; }
         public DamageType DamageType { get; set; }
         public int BasePower { get; set; }
-        public int Accuracy { get; set; } = 100;
+        public int Accuracy { get; set; }
         public int ManaCost { get; set; }
     
 
-    public Move(string name, MoveType moveType, int basePower, DamageType damageType, int manaCost)
+    public Move(string name, MoveType moveType, int basePower, DamageType damageType, int accuracy, int manaCost)
         {
             Name = name;
             MoveType = moveType;
             BasePower = basePower;
             DamageType = damageType;
+            Accuracy = accuracy;
             ManaCost = manaCost;
         }
     }

@@ -1,4 +1,5 @@
 ﻿using GameCORE.Enumerations;
+using GameCORE.Armament;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,6 +21,13 @@ namespace GameCORE.Player_Classes
             CurrentMana = 50;
             SpecialAbility = "Atonement";
             GetDescription = "A flagellant warrior who endures suffering to fuel their divine wrath and protect the faithful.";
+            Weapon = new Weapon { Name = "Rusty Flail", DamageType = DamageType.Physical, BaseDamage = 10, Description = "A heavy flail that delivers crushing blows.", StrengthMultiplier = 1.5, MindMultiplier = 0.8, Rarity = Rarity.Common };
+
+            Moves.Add(new Move("Flail Strike", MoveType.Physical, 35, DamageType.Physical, 0, 0));
+            Moves.Add(new Move("Divine Smite", MoveType.Physical, 50, DamageType.Holy, 0, 0));
+            Moves.Add(new Magic("Holy Light", MoveType.OffensiveMagic, 30, DamageType.Holy, 20));
+            Moves.Add(new Magic("Purifying Light", MoveType.SupportiveMagic, 40, DamageType.Holy, 30));
+            
 
             TypeResistance = new Dictionary<DamageType, double>
 {

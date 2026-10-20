@@ -1,4 +1,5 @@
 ﻿using GameCORE.Enumerations;
+using GameCORE.Armament;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,6 +21,11 @@ namespace GameCORE.Player_Classes
             CurrentMana = 50;
             SpecialAbility = "Mark of the Prey";
             GetDescription = "A ruthless tracker and master of ranged combat who never loses sight of their quarry.";
+
+            Moves.Add(new Move("Standard Shot", MoveType.Physical, 25, DamageType.Physical, 100, 0));
+            Moves.Add(new Move("Snipe", MoveType.Physical, 80, DamageType.Physical, 75, 0));
+            Moves.Add(new Magic("Flaming Arrow", MoveType.OffensiveMagic, 35, DamageType.Fire, 15));
+            Moves.Add(new Magic("Poisoned Arrow", MoveType.OffensiveMagic, 30, DamageType.Poison, 10));
 
             TypeResistance = new Dictionary<DamageType, double>
 {

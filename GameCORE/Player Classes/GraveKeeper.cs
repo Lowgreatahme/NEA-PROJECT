@@ -23,11 +23,11 @@ namespace GameCORE.Player_Classes
             GetDescription = "A solemn sentinel of the dead who draws power from burial grounds and commands restless spirits.";
             Weapon = new Weapon { Name = "Shovel", DamageType = DamageType.Physical, BaseDamage = 5, Description = "A sturdy shovel used for digging graves.", StrengthMultiplier = 1.2, MindMultiplier = 1.0, Rarity = Rarity.Common };
             
-            Moves.Add(new Move("Shovel Strike", MoveType.Physical, 30, DamageType.Physical, 0));
-            Moves.Add(new Move("Wraith Grip", MoveType.Physical, 40, DamageType.Dark, 0));
-            Moves.Add(new Magic ("Crucify", MoveType.OffensiveMagic, 50, DamageType.Holy, 20 ));
-            Moves.Add(new Magic ("Soul Harvest", MoveType.SupportiveMagic, 50, DamageType.Dark, 50 ));
-
+            Moves.Add(new Move("Shovel Strike", MoveType.Physical, 30, DamageType.Physical, 0, 0));
+            Moves.Add(new Move("Wraith Grip", MoveType.Physical, 40, DamageType.Dark, 0, 0));
+            Moves.Add(new Magic("Crucify", MoveType.OffensiveMagic, 50, DamageType.Holy, 20));
+            Moves.Add(new Magic("Undeath Steal", MoveType.SupportiveMagic, 50, DamageType.Dark, 50));
+    
 
             TypeResistance = new Dictionary<DamageType, double>
             {
