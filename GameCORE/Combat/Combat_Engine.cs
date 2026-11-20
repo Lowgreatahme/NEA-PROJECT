@@ -43,6 +43,7 @@ namespace GameCORE.Combat
                 
                 int damage = DamageCalculator.CalculateDamage(PlayerAttacker, EnemyTarget, PlayerAttacker.Weapon, move);
                 EnemyTarget.CurrentVigor = EnemyTarget.CurrentVigor - damage;
+                PlayerAttacker.LastDamageDealt = damage;
             }
             if (move.MoveType == MoveType.OffensiveMagic)
             {
@@ -50,6 +51,7 @@ namespace GameCORE.Combat
                 int Magicdamage = MagicDamageCalculator.CalculateMagicDamage(PlayerAttacker, EnemyTarget, move, PlayerAttacker.Weapon);
                 EnemyTarget.CurrentVigor = EnemyTarget.CurrentVigor - Magicdamage;
                 Attacker.CurrentMana -= move.ManaCost;
+                PlayerAttacker.LastDamageDealt = Magicdamage;
             }
             if (move.MoveType == MoveType.SupportiveMagic)
             {
@@ -100,6 +102,7 @@ do
                             int MagicDamage = MagicDamageCalculator.CalculateEnemyMagicDamage(EnemyAttacker, AshBornTarget, EnemyAttacker.Moves[x]);
                             AshBornTarget.CurrentVigor = AshBornTarget.CurrentVigor - MagicDamage;
                             EnemyAttacker.CurrentMana -= EnemyAttacker.Moves[x].ManaCost;
+                            EnemyAttacker.LastDamageDealt = MagicDamage;
 
                             if (AshBornTarget.CurrentVigor <= 0)
                             {
@@ -119,6 +122,7 @@ do
                             ChosenMove = EnemyAttacker.Moves[x].Name;
                             int damage = DamageCalculator.CalculateEnemyDamage(EnemyAttacker, AshBornTarget, EnemyAttacker.Moves[x]); // PHYSICAL ATTACK
                             AshBornTarget.CurrentVigor = AshBornTarget.CurrentVigor - damage;
+                            EnemyAttacker.LastDamageDealt = damage;
                             if (AshBornTarget.CurrentVigor <= 0)
                             {
                                 //Player is Dead!

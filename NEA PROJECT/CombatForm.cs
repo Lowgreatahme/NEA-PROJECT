@@ -3,6 +3,7 @@ using GameCORE.Characters;
 using GameCORE.Combat;
 using GameCORE.Enumerations;
 using GameDATA;
+using Microsoft.VisualBasic.Logging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,44 +17,53 @@ namespace NEA_PROJECT
 {
     public partial class CombatForm : Form
     {
+        string log = "";
+        int TurnNum = 1;
+
         public List<Enemy> Enemies = new List<Enemy>(); //List of enemies loaded from the JSON file
         public Enemy Enemy1;
 
         public void ActiveTurn(Move SelectedMove)
         {
-            string log = Enemy1.Name + " HP: " + Enemy1.CurrentVigor + "\n" + Player.Name + " HP: " + Player.CurrentVigor;
-         Combat_Engine combat_Engine = new Combat_Engine();
-            BattleDisplay_Label.Text = log;
+            BattleLog.AutoScrollOffset = new Point(0, 0);
+            log = "Battle Log:\n" + Enemy1.Name + " HP: " + Enemy1.CurrentVigor + "\n" + Player.Name + " HP: " + Player.CurrentVigor + "\n";
+            Combat_Engine combat_Engine = new Combat_Engine();
+            BattleLog.Text = log;
             if (Player.CurrentMana < SelectedMove.ManaCost)
             {
-                BattleDisplay_Label.Controls.Clear();
-                BattleDisplay_Label.Text = "Not Enough Mana!";
+
+                BattleLog.Text = "Not Enough Mana!";
+                EnemyHP_Label_Change();
                 return;
             }
             else
             {
-                
-                
-                    combat_Engine.TurnOrder(Enemy1, Player, SelectedMove);
+
+
+                combat_Engine.TurnOrder(Enemy1, Player, SelectedMove);
+                EnemyHP_Label_Change();
+                BattleLog.Text += Enemy1.Name + "dealt " + Enemy1.LastDamageDealt + " damage to " + Player.Name + "\n" + Player.Name + " dealt " + Player.LastDamageDealt + " damage to " + Enemy1.Name;
                 if (Enemy1.CurrentVigor <= 0)
                 {
-                    BattleDisplay_Label.Controls.Clear();
-                    BattleDisplay_Label.Text = "Victory!";
+
+                    BattleLog.Text = "Victory!";
                     return;
                 }
                 else if (Player.CurrentVigor <= 0)
                 {
-                    BattleDisplay_Label.Controls.Clear();
-                    BattleDisplay_Label.Text = "LOST!";
+
+                    BattleLog.Text = "LOST!";
                     return;
                 }
+
                 else
                 {
-                       BattleDisplay_Label.Controls.Clear();
-                    BattleDisplay_Label.Text = log;
+
+                    TurnNum++;
+                    BattleLog.Text += "\n \n" + log;
                 }
-                
-                
+
+
 
             }
 
@@ -66,18 +76,20 @@ namespace NEA_PROJECT
             InitializeComponent();
             Enemies = JsonLoader.LoadEnemies("JSON Files\\EnemyData.json");
 
-            
+
 
             if (Enemies != null && Enemies.Count > 0)
             {
-                MessageBox.Show("Enemies loaded: " + Enemies.Count);
-                MessageBox.Show("Player moves: " + Player.Moves.Count);
-                Enemy1 = Enemies[7];
-                BattleDisplay_Label.Text = Enemy1.Name;
+
+
+                Enemy1 = Enemies[6];
+                log = "Turn 1: " + Enemy1.Name + " HP: " + Enemy1.CurrentVigor + "\n" + Player.Name + " HP: " + Player.CurrentVigor;
+                BattleLog.Text = log;
+
             }
             else
             {
-                BattleDisplay_Label.Text = "No enemies loaded";
+                BattleLog.Text = "No enemies loaded";
             }
         }
         public AshBorn Player = PlayerCreator.Player; //Carries over the saved character from CharacterCreator
@@ -88,9 +100,9 @@ namespace NEA_PROJECT
 
         private void Combat_Button_Click(object sender, EventArgs e)
         {
-            
 
-            Display_Panel.Controls.Clear();
+
+            DisableButtons(sender, e);
             Button Move1 = new Button();
             Button Move2 = new Button();
             Button Move3 = new Button();
@@ -166,36 +178,44 @@ namespace NEA_PROJECT
 
 
 
-                Move1.Click += (s, args) =>
+            Move1.Click += (s, args) =>
+        {
+            ActiveTurn(Player.Moves[0]);
+            Display_Panel.Controls.Clear();
+            EnableMainButtons(sender, e);
+        };
+            Move2.Click += (s, args) =>
             {
-                ActiveTurn(Player.Moves[0]);
+                ActiveTurn(Player.Moves[1]);
+                Display_Panel.Controls.Clear();
+                EnableMainButtons(sender, e);
             };
-                Move2.Click += (s, args) =>
-                {
-                    ActiveTurn(Player.Moves[1]);
-                };
-                Move3.Click += (s, args) =>
-                {
-                    ActiveTurn(Player.Moves[2]);
-                };
-                Move4.Click += (s, args) =>
-                {
-                    ActiveTurn(Player.Moves[3]);
-                };
+            Move3.Click += (s, args) =>
+            {
+                ActiveTurn(Player.Moves[2]);
+                Display_Panel.Controls.Clear();
+                EnableMainButtons(sender, e);
+            };
+            Move4.Click += (s, args) =>
+            {
+                ActiveTurn(Player.Moves[3]);
+                Display_Panel.Controls.Clear();
+                EnableMainButtons(sender, e);
+            };
 
-            }
-        
+        }
 
-         
-        
 
-        
+
+
+
+
 
         private void Display_Panel_Paint(object sender, PaintEventArgs e) { }
 
         private void Magic_Button_Click(object sender, EventArgs e)
         {
-            Display_Panel.Controls.Clear();
+            DisableButtons(sender, e);
             Button Move1 = new Button();
             Button Move2 = new Button();
             Button Move3 = new Button();
@@ -206,20 +226,20 @@ namespace NEA_PROJECT
 
             if (Player.Moves[0].MoveType == MoveType.OffensiveMagic || Player.Moves[0].MoveType == MoveType.SupportiveMagic)
             {
-                
+
                 Move1.Size = new Size(120, 40);
                 Move1.Text = Player.Moves[0].Name;
                 Display_Panel.Controls.Add(Move1);
-                
+
                 MovesMade++;
             }
             if (Player.Moves[1].MoveType == MoveType.OffensiveMagic || Player.Moves[1].MoveType == MoveType.SupportiveMagic)
             {
-                
+
                 Move2.Size = new Size(120, 40);
                 Move2.Text = Player.Moves[1].Name;
                 Display_Panel.Controls.Add(Move2);
-                
+
                 if (MovesMade == 1)
                 {
                     Move2.Location = new Point(CurrentX, CurrentY + 40);
@@ -228,16 +248,16 @@ namespace NEA_PROJECT
             }
             if (Player.Moves[2].MoveType == MoveType.OffensiveMagic || Player.Moves[2].MoveType == MoveType.SupportiveMagic)
             {
-                
+
                 Move3.Size = new Size(120, 40);
                 Move3.Text = Player.Moves[2].Name;
                 Display_Panel.Controls.Add(Move3);
-                
+
                 if (MovesMade == 2)
                 {
                     Move3.Location = new Point(CurrentX, CurrentY + 80);
                 }
-                
+
                 else if (MovesMade == 1)
                 {
                     Move3.Location = new Point(CurrentX, CurrentY + 40);
@@ -246,7 +266,7 @@ namespace NEA_PROJECT
             }
             if (Player.Moves[3].MoveType == MoveType.OffensiveMagic || Player.Moves[3].MoveType == MoveType.SupportiveMagic)
             {
-                
+
                 Move4.Size = new Size(120, 40);
                 Move4.Text = Player.Moves[3].Name;
                 Display_Panel.Controls.Add(Move4);
@@ -254,7 +274,7 @@ namespace NEA_PROJECT
                 {
                     Move4.Location = new Point(CurrentX, CurrentY + 120);
                 }
-                else if(MovesMade == 2)
+                else if (MovesMade == 2)
                 {
                     Move4.Location = new Point(CurrentX, CurrentY + 80);
                 }
@@ -268,22 +288,81 @@ namespace NEA_PROJECT
             Move1.Click += (s, args) =>
             {
                 ActiveTurn(Player.Moves[0]);
+                Display_Panel.Controls.Clear();
+                EnableMainButtons(sender, e);
             };
             Move2.Click += (s, args) =>
             {
                 ActiveTurn(Player.Moves[1]);
+                Display_Panel.Controls.Clear();
+                EnableMainButtons(sender, e);
             };
             Move3.Click += (s, args) =>
             {
                 ActiveTurn(Player.Moves[2]);
-
+                Display_Panel.Controls.Clear();
+                EnableMainButtons(sender, e);
             };
             Move4.Click += (s, args) =>
             {
                 ActiveTurn(Player.Moves[3]);
+                Display_Panel.Controls.Clear();
+                EnableMainButtons(sender, e);
             };
 
 
+
+        }
+
+        private void CombatForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DisableButtons(object sender, EventArgs e)
+        {
+            Combat_Button.Visible = false;
+            Magic_Button.Visible = false;
+            Items_Button.Visible = false;
+            Act_Button.Visible = false;
+            Combat_Button.Enabled = false;
+            Magic_Button.Enabled = false;
+            Items_Button.Enabled = false;
+            Act_Button.Enabled = false;
+        }
+        private void EnableMainButtons(object sender, EventArgs e)
+        {
+            Combat_Button.Visible = true;
+            Magic_Button.Visible = true;
+            Items_Button.Visible = true;
+            Act_Button.Visible = true;
+            Combat_Button.Enabled = true;
+            Magic_Button.Enabled = true;
+            Items_Button.Enabled = true;
+            Act_Button.Enabled = true;
+        }
+        private void EnemyHP_Label_Change()
+        {
+            
+            int count = Enemy1.CurrentVigor / 10;
+            int count2 = Enemy1.Vigor / 10;
+
+            if (count > count2)
+            {
+                count = count2;
+            }
+            if (count2 < 1)
+            {
+                count2 = 0;
+            }
+            EnemyHP_Label.Text = "Enemy HP: [ " + ("#".PadLeft(count, '#'));
+            EnemyHP_Label.Text += ("-".PadLeft(count2 - count, '-')) + " ]";
+
+
+        }
+
+        private void EnemyHP_Label_Click(object sender, EventArgs e)
+        {
 
         }
     }
