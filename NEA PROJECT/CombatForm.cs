@@ -1,4 +1,5 @@
-﻿using GameCORE.Armament;
+﻿using GameCORE;
+using GameCORE.Armament;
 using GameCORE.Characters;
 using GameCORE.Combat;
 using GameCORE.Enumerations;
@@ -20,12 +21,15 @@ namespace NEA_PROJECT
         string log = "";
         int TurnNum = 1;
 
+        int CurrentWave = 1;
+        
+
         public List<Enemy> Enemies = new List<Enemy>(); //List of enemies loaded from the JSON file
         public Enemy Enemy1;
 
         public void ActiveTurn(Move SelectedMove)
         {
-            BattleLog.AutoScrollOffset = new Point(0, 0);
+            
             log = "Battle Log:\n" + Enemy1.Name + " HP: " + Enemy1.CurrentVigor + "\n" + Player.Name + " HP: " + Player.CurrentVigor + "\n";
             Combat_Engine combat_Engine = new Combat_Engine();
             BattleLog.Text = log;
@@ -72,7 +76,7 @@ namespace NEA_PROJECT
         public CombatForm()
         {
 
-
+            
             InitializeComponent();
             Enemies = JsonLoader.LoadEnemies("JSON Files\\EnemyData.json");
 
@@ -81,8 +85,9 @@ namespace NEA_PROJECT
             if (Enemies != null && Enemies.Count > 0)
             {
 
-
-                Enemy1 = Enemies[6];
+                
+                WavesManager wavesManager = new WavesManager(Player, Enemies, CurrentWave);
+                Enemy1 = wavesManager.SelectEnemyForWave();
                 log = "Turn 1: " + Enemy1.Name + " HP: " + Enemy1.CurrentVigor + "\n" + Player.Name + " HP: " + Player.CurrentVigor;
                 BattleLog.Text = log;
 
@@ -175,7 +180,7 @@ namespace NEA_PROJECT
 
 
 
-
+            WavesManager wavesManager = new WavesManager(Player, Enemies, CurrentWave);
 
 
             Move1.Click += (s, args) =>
@@ -183,6 +188,8 @@ namespace NEA_PROJECT
             ActiveTurn(Player.Moves[0]);
             Display_Panel.Controls.Clear();
             EnableMainButtons(sender, e);
+            wavesManager.IncrementTurnsSurvived();
+            wavesManager.IncrementWave();
         };
             Move2.Click += (s, args) =>
             {

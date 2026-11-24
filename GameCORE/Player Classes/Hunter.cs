@@ -22,6 +22,10 @@ namespace GameCORE.Player_Classes
             SpecialAbility = "Mark of the Prey";
             GetDescription = "A ruthless tracker and master of ranged combat who never loses sight of their quarry.";
 
+
+            Weapon = new Weapon { Name = "LongBow", DamageType = DamageType.Physical, BaseDamage = 8, Description = "A longbow used for ranged combat.", StrengthMultiplier = 1.1, MindMultiplier = 1.0, Rarity = Rarity.Common };
+
+
             Moves.Add(new Move("Standard Shot", MoveType.Physical, 25, DamageType.Physical, 100, 0));
             Moves.Add(new Move("Snipe", MoveType.Physical, 80, DamageType.Physical, 75, 0));
             Moves.Add(new Magic("Flaming Arrow", MoveType.OffensiveMagic, 35, DamageType.Fire, 15));

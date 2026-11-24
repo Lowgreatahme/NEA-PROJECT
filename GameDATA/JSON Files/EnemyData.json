@@ -375,8 +375,8 @@
   {
     "Name": "Lord of Cinders",
     "IsBoss": true,
-    "Vigor": 2800,
-    "CurrentVigor": 2800,
+    "Vigor": 280,
+    "CurrentVigor": 280,
     "Mana": 120,
     "CurrentMana": 120,
     "Strength": 28,
